@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "recipes": [
+    {
+      "id": "4199",
+      "name": "Recipe: Bow of Peril (100%)",
+      "outputItemId": "287",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "4121",
+          "quantity": 13
+        },
+        {
+          "itemId": "4045",
+          "quantity": 3
+        },
+        {
+          "itemId": "1890",
+          "quantity": 285
+        },
+        {
+          "itemId": "1889",
+          "quantity": 57
+        },
+        {
+          "itemId": "1885",
+          "quantity": 57
+        },
+        {
+          "itemId": "4042",
+          "quantity": 57
+        },
+        {
+          "itemId": "1460",
+          "quantity": 328
+        },
+        {
+          "itemId": "2132",
+          "quantity": 98
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4199-recipe-bow-of-peril-100"
+    },
+    {
+      "id": "4122",
+      "name": "Recipe: Maestro Holder (100%)",
+      "outputItemId": "4045",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 60,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1887",
+          "quantity": 10
+        },
+        {
+          "itemId": "4040",
+          "quantity": 10
+        },
+        {
+          "itemId": "4041",
+          "quantity": 10
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4122-recipe-maestro-holder-100"
+    },
+    {
+      "id": "2145",
+      "name": "Recipe: Mithril Alloy",
+      "outputItemId": "1890",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 40,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1887",
+          "quantity": 1
+        },
+        {
+          "itemId": "1880",
+          "quantity": 2
+        },
+        {
+          "itemId": "1876",
+          "quantity": 1
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2145-recipe-mithril-alloy"
+    },
+    {
+      "id": "2144",
+      "name": "Recipe: Compound Braid",
+      "outputItemId": "1889",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 20,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1878",
+          "quantity": 5
+        },
+        {
+          "itemId": "1868",
+          "quantity": 5
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2144-recipe-compound-braid"
+    },
+    {
+      "id": "2140",
+      "name": "Recipe: High-Grade Suede",
+      "outputItemId": "1885",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 20,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1881",
+          "quantity": 1
+        },
+        {
+          "itemId": "1866",
+          "quantity": 3
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2140-recipe-high-grade-suede"
+    },
+    {
+      "id": "2142",
+      "name": "Recipe: Varnish of Purity",
+      "outputItemId": "1887",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 20,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1881",
+          "quantity": 3
+        },
+        {
+          "itemId": "1865",
+          "quantity": 3
+        },
+        {
+          "itemId": "1875",
+          "quantity": 1
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2142-recipe-varnish-of-purity"
+    },
+    {
+      "id": "2137",
+      "name": "Recipe: Steel",
+      "outputItemId": "1880",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 10,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1865",
+          "quantity": 5
+        },
+        {
+          "itemId": "1869",
+          "quantity": 5
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2137-recipe-steel"
+    },
+    {
+      "id": "2135",
+      "name": "Recipe: Braided Hemp",
+      "outputItemId": "1878",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 10,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1864",
+          "quantity": 5
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2135-recipe-braided-hemp"
+    },
+    {
+      "id": "2138",
+      "name": "Recipe: Coarse Bone Powder (100%)",
+      "outputItemId": "1881",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 10,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1872",
+          "quantity": 10
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2138-recipe-coarse-bone-powder-100"
+    }
+  ]
+}

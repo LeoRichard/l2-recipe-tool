@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "4199",
+      "slug": "recipe-bow-of-peril-100",
+      "name": "Recipe: Bow of Peril (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "287",
+      "slug": "bow-of-peril",
+      "name": "Bow of Peril",
+      "iconName": "weapon_hazard_bow_i00",
+      "category": "recipe_output",
+      "recipeId": "4199"
+    },
+    {
+      "id": "4121",
+      "slug": "bow-of-peril-shaft",
+      "name": "Bow of Peril Shaft",
+      "iconName": "etc_branch_gold_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4045",
+      "slug": "maestro-holder",
+      "name": "Maestro Holder",
+      "iconName": "etc_lump_yellow_i00",
+      "category": "recipe_output",
+      "recipeId": "4122"
+    },
+    {
+      "id": "1890",
+      "slug": "mithril-alloy",
+      "name": "Mithril Alloy",
+      "iconName": "etc_lump_white_i00",
+      "category": "recipe_output",
+      "recipeId": "2145"
+    },
+    {
+      "id": "1889",
+      "slug": "compound-braid",
+      "name": "Compound Braid",
+      "iconName": "etc_compound_braid_i00",
+      "category": "recipe_output",
+      "recipeId": "2144"
+    },
+    {
+      "id": "1885",
+      "slug": "high-grade-suede",
+      "name": "High-Grade Suede",
+      "iconName": "etc_pouch_yellow_i00",
+      "category": "recipe_output",
+      "recipeId": "2140"
+    },
+    {
+      "id": "4042",
+      "slug": "enria",
+      "name": "Enria",
+      "iconName": "etc_gem_red_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "1460",
+      "slug": "crystal-b-grade",
+      "name": "Crystal (B-Grade)",
+      "iconName": "etc_crystal_red_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2132",
+      "slug": "gemstone-b",
+      "name": "Gemstone B",
+      "iconName": "etc_bead_green_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4122",
+      "slug": "recipe-maestro-holder-100",
+      "name": "Recipe: Maestro Holder (100%)",
+      "iconName": "etc_recipe_yellow_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1887",
+      "slug": "varnish-of-purity",
+      "name": "Varnish of Purity",
+      "iconName": "etc_potion_clear_i00",
+      "category": "recipe_output",
+      "recipeId": "2142"
+    },
+    {
+      "id": "4040",
+      "slug": "mold-lubricant",
+      "name": "Mold Lubricant",
+      "iconName": "etc_reagent_gold_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4041",
+      "slug": "mold-hardener",
+      "name": "Mold Hardener",
+      "iconName": "etc_reagent_blue_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2145",
+      "slug": "recipe-mithril-alloy",
+      "name": "Recipe: Mithril Alloy",
+      "iconName": "etc_recipe_blue_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1880",
+      "slug": "steel",
+      "name": "Steel",
+      "iconName": "etc_lump_black_i00",
+      "category": "recipe_output",
+      "recipeId": "2137"
+    },
+    {
+      "id": "1876",
+      "slug": "mithril-ore",
+      "name": "Mithril Ore",
+      "iconName": "etc_mithril_ore_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2144",
+      "slug": "recipe-compound-braid",
+      "name": "Recipe: Compound Braid",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1878",
+      "slug": "braided-hemp",
+      "name": "Braided Hemp",
+      "iconName": "etc_braided_hemp_i00",
+      "category": "recipe_output",
+      "recipeId": "2135"
+    },
+    {
+      "id": "1868",
+      "slug": "thread",
+      "name": "Thread",
+      "iconName": "etc_skein_white_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2140",
+      "slug": "recipe-high-grade-suede",
+      "name": "Recipe: High-Grade Suede",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1881",
+      "slug": "coarse-bone-powder",
+      "name": "Coarse Bone Powder",
+      "iconName": "etc_powder_white_i00",
+      "category": "recipe_output",
+      "recipeId": "2138"
+    },
+    {
+      "id": "1866",
+      "slug": "suede",
+      "name": "Suede",
+      "iconName": "etc_suede_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2142",
+      "slug": "recipe-varnish-of-purity",
+      "name": "Recipe: Varnish of Purity",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1865",
+      "slug": "varnish",
+      "name": "Varnish",
+      "iconName": "etc_ancient_treasure_sack_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "1875",
+      "slug": "stone-of-purity",
+      "name": "Stone of Purity",
+      "iconName": "etc_crystal_ball_violet_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2137",
+      "slug": "recipe-steel",
+      "name": "Recipe: Steel",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1869",
+      "slug": "iron-ore",
+      "name": "Iron Ore",
+      "iconName": "etc_lump_gray_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2135",
+      "slug": "recipe-braided-hemp",
+      "name": "Recipe: Braided Hemp",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1864",
+      "slug": "stem",
+      "name": "Stem",
+      "iconName": "etc_branch_gold_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2138",
+      "slug": "recipe-coarse-bone-powder-100",
+      "name": "Recipe: Coarse Bone Powder (100%)",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1872",
+      "slug": "animal-bone",
+      "name": "Animal Bone",
+      "iconName": "etc_piece_bone_white_i00",
+      "category": "material",
+      "recipeId": null
+    }
+  ]
+}

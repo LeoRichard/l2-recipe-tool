@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+scraper/node_modules/
+
+# Build output
+dist/
+
+# Environment & local config
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Claude Code settings (local overrides only — keep settings.json if it has shared config)
+.claude/settings.local.json
