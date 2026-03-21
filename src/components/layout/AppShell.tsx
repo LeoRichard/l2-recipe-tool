@@ -2,9 +2,8 @@ import { useAppStore } from '../../store/appStore'
 import { TopBar } from './TopBar'
 import { Sidebar } from './Sidebar'
 import { RecipeList } from '../recipes/RecipeList'
-import { CraftingQueue } from '../queue/CraftingQueue'
+import { CraftList } from '../crafts/CraftList'
 import { InventoryPanel } from '../inventory/InventoryPanel'
-import { BomPanel } from '../bom/BomPanel'
 import { PricesPanel } from '../prices/PricesPanel'
 
 export function AppShell() {
@@ -16,11 +15,10 @@ export function AppShell() {
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
         <main className="flex-1 overflow-y-auto p-8" style={{ background: '#0c1018' }}>
-          <div className="max-w-5xl mx-auto animate-slide-up">
+          <div className={`mx-auto animate-slide-up ${activeSection === 'crafts' ? 'max-w-7xl' : 'max-w-5xl'}`}>
             {activeSection === 'recipes'   && <RecipeList />}
-            {activeSection === 'queue'     && <CraftingQueue />}
+            {activeSection === 'crafts'    && <CraftList />}
             {activeSection === 'inventory' && <InventoryPanel />}
-            {activeSection === 'bom'       && <BomPanel />}
             {activeSection === 'prices'    && <PricesPanel />}
           </div>
         </main>

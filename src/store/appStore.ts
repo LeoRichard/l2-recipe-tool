@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware'
 import { v4 as uuid } from 'uuid'
 import type { AppState, QueueEntry, InventoryEntry, PriceEntry } from '../types'
 
-export type Section = 'recipes' | 'queue' | 'inventory' | 'bom' | 'prices'
+export type Section = 'recipes' | 'crafts' | 'inventory' | 'prices'
 
 interface AppStore extends AppState {
   activeSection: Section
@@ -34,6 +34,7 @@ export const useAppStore = create<AppStore>()(
       addToQueue: (recipeId, qty = 1) =>
         set((s) => ({
           queue: [...s.queue, { id: uuid(), recipeId, quantity: qty }],
+          activeSection: 'crafts' as Section,
           lastModified: new Date().toISOString(),
         })),
 

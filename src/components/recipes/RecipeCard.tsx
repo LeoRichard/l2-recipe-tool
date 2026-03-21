@@ -27,7 +27,7 @@ export function RecipeCard({ recipe }: Props) {
 
   function handleAdd() {
     if (!alreadyQueued) addToQueue(recipe.id)
-    setActiveSection('queue')
+    setActiveSection('crafts')
   }
 
   const displayName = recipe.name.replace(/^Recipe:\s*/i, '')
@@ -98,7 +98,7 @@ export function RecipeCard({ recipe }: Props) {
                 : 'btn-primary'
             }`}
           >
-            {alreadyQueued ? 'In Queue →' : '+ Queue'}
+            {alreadyQueued ? 'In Crafts →' : '+ Add'}
           </button>
         </div>
       </div>

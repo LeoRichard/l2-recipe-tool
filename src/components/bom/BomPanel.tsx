@@ -51,68 +51,139 @@ export function BomPanel() {
   const toBuy            = result.grandTotalCost // sum of short * price
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex items-end justify-between">
-        <div>
-          <p className="text-ink-secondary text-sm font-body mb-1">Bill of Materials</p>
-          <h1 className="font-display font-700 text-3xl text-ink">Materials</h1>
-        </div>
+    <div className="flex flex-col gap-6">
+      {/* ── Page header ──────────────────────────────────────────────────── */}
+      <div>
+        <p className="text-ink-secondary text-sm font-body mb-1">Bill of Materials</p>
+        <h1 className="font-display font-700 text-3xl text-ink">Materials</h1>
       </div>
 
-      {/* ── Cost Summary ─────────────────────────────────────────────────── */}
-      <CostSummary
-        totalRecipeCost={totalRecipeCost}
-        investedValue={investedValue}
-        toBuy={toBuy}
-      />
+      {/* ── Two-column layout ────────────────────────────────────────────── */}
+      <div className="flex gap-6 items-start">
 
-      {/* ── Item counts ──────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-3 gap-4">
-        <StatCard value={result.flat.length} label="Total Materials"  color="rgba(255,255,255,0.06)" textColor="#8b95a3" />
-        <StatCard value={missing.length}     label="Still Needed"     color="rgba(231,76,60,0.1)"   textColor="#fb7185" />
-        <StatCard value={covered.length}     label="Covered"          color="rgba(16,185,129,0.1)"  textColor="#34d399" />
-      </div>
+        {/* Left column — summary cards */}
+        <div className="flex flex-col gap-4" style={{ width: '340px', flexShrink: 0 }}>
 
-      {/* ── Tabs ─────────────────────────────────────────────────────────── */}
-      <div className="flex gap-1" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-        <Tab active={tab === 'flat'} onClick={() => setTab('flat')}>Raw Materials</Tab>
-        <Tab active={tab === 'tree'} onClick={() => setTab('tree')}>Recipe Tree</Tab>
-      </div>
+          {/* Cost summary */}
+          <CostSummary
+            totalRecipeCost={totalRecipeCost}
+            investedValue={investedValue}
+            toBuy={toBuy}
+          />
 
-      {tab === 'flat' && <FlatView result={result} pricesMap={pricesMap} />}
+          {/* Stat cards */}
+          <div className="grid grid-cols-3 gap-3">
+            <StatCard value={result.flat.length} label="Total"        color="rgba(255,255,255,0.06)" textColor="#8b95a3" />
+            <StatCard value={missing.length}     label="Still Needed" color="rgba(231,76,60,0.1)"   textColor="#fb7185" />
+            <StatCard value={covered.length}     label="Covered"      color="rgba(16,185,129,0.1)"  textColor="#34d399" />
+          </div>
 
-      {tab === 'tree' && (
-        <div className="card" style={{ padding: '8px' }}>
-          {result.tree.map((node, i) => (
+          {/* Progress bar */}
+          <CompletionBar flat={result.flat} />
+
+          {/* No prices hint */}
+          {result.flat.length > 0 && !prices.some((p) => p.adenaPerUnit > 0) && (
             <div
-              key={i}
-              className={i > 0 ? 'mt-2 pt-2' : ''}
-              style={i > 0 ? { borderTop: '1px solid rgba(255,255,255,0.06)' } : {}}
+              className="rounded-lg px-4 py-3 flex items-center justify-between gap-3"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
-              <BomTreeNode node={node} depth={0} />
+              <p className="text-ink-muted text-sm font-body">No prices set yet.</p>
+              <button
+                onClick={() => setActiveSection('prices')}
+                className="btn-amber text-sm flex-shrink-0"
+                style={{ padding: '5px 12px' }}
+              >
+                Set Prices →
+              </button>
             </div>
-          ))}
+          )}
         </div>
-      )}
 
-      {/* Prices live in the Market Prices section (nav) */}
-      {result.flat.length > 0 && !prices.some((p) => p.adenaPerUnit > 0) && (
-        <div
-          className="rounded-lg px-4 py-3 flex items-center justify-between"
-          style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
-        >
-          <p className="text-ink-muted text-sm font-body">
-            No prices set yet — cost columns will show — until you add them.
-          </p>
-          <button
-            onClick={() => setActiveSection('prices')}
-            className="btn-amber text-sm flex-shrink-0 ml-4"
-            style={{ padding: '5px 12px' }}
-          >
-            Set Prices →
-          </button>
+        {/* Right column — table / tree */}
+        <div className="flex flex-col gap-4 min-w-0 flex-1">
+          {/* Tabs */}
+          <div className="flex gap-1" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+            <Tab active={tab === 'flat'} onClick={() => setTab('flat')}>Raw Materials</Tab>
+            <Tab active={tab === 'tree'} onClick={() => setTab('tree')}>Recipe Tree</Tab>
+          </div>
+
+          {tab === 'flat' && <FlatView result={result} pricesMap={pricesMap} />}
+
+          {tab === 'tree' && (
+            <div className="card" style={{ padding: '8px' }}>
+              {result.tree.map((node, i) => (
+                <div
+                  key={i}
+                  className={i > 0 ? 'mt-2 pt-2' : ''}
+                  style={i > 0 ? { borderTop: '1px solid rgba(255,255,255,0.06)' } : {}}
+                >
+                  <BomTreeNode node={node} depth={0} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+
+      </div>
+    </div>
+  )
+}
+
+// ── Completion Bar ───────────────────────────────────────────────────────────
+
+function CompletionBar({ flat }: { flat: BomResult['flat'] }) {
+  if (flat.length === 0) return null
+
+  const totalUnits   = flat.reduce((s, r) => s + r.totalNeeded, 0)
+  const coveredUnits = flat.reduce((s, r) => s + Math.min(r.totalAvailable, r.totalNeeded), 0)
+  const pct          = totalUnits > 0 ? Math.round((coveredUnits / totalUnits) * 100) : 0
+
+  const color =
+    pct >= 100 ? '#34d399' :
+    pct >= 60  ? '#e6a817' :
+    pct >= 30  ? '#f97316' : '#fb7185'
+
+  return (
+    <div
+      className="rounded-xl px-5 py-4"
+      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
+    >
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-sm font-body font-500 text-ink-secondary">Preparation Progress</span>
+        <span className="font-display font-700 text-lg" style={{ color }}>
+          {pct}%
+        </span>
+      </div>
+
+      {/* Track */}
+      <div
+        className="relative w-full rounded-full overflow-hidden"
+        style={{ height: '8px', background: 'rgba(255,255,255,0.07)' }}
+      >
+        <div
+          className="absolute left-0 top-0 h-full rounded-full transition-all duration-700"
+          style={{
+            width: `${pct}%`,
+            background: pct >= 100
+              ? 'linear-gradient(90deg, #34d399, #10b981)'
+              : `linear-gradient(90deg, ${color}cc, ${color})`,
+            boxShadow: `0 0 10px ${color}66`,
+          }}
+        />
+      </div>
+
+      <div className="flex justify-between mt-2">
+        <span className="text-xs font-body text-ink-muted">
+          {coveredUnits.toLocaleString()} / {totalUnits.toLocaleString()} units gathered
+        </span>
+        {pct >= 100 ? (
+          <span className="text-xs font-body font-500" style={{ color: '#34d399' }}>Ready to craft!</span>
+        ) : (
+          <span className="text-xs font-body text-ink-muted">
+            {(totalUnits - coveredUnits).toLocaleString()} remaining
+          </span>
+        )}
+      </div>
     </div>
   )
 }
@@ -127,66 +198,84 @@ function CostSummary({
   if (!hasAnyPrice) {
     return (
       <div
-        className="rounded-xl px-5 py-4 flex items-center gap-3"
+        className="rounded-xl px-4 py-4 flex items-center gap-3"
         style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a5568" strokeWidth="2">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4a5568" strokeWidth="2" style={{ flexShrink: 0 }}>
           <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
           <line x1="12" y1="16" x2="12.01" y2="16"/>
         </svg>
         <p className="text-ink-muted text-sm font-body">
-          Set prices in the <span className="text-ink-secondary">Market Prices</span> section below to see cost estimates.
+          Add prices in <span className="text-ink-secondary">Market Prices</span> to see cost breakdown.
         </p>
       </div>
     )
   }
 
-  return (
-    <div
-      className="rounded-xl overflow-hidden"
-      style={{ border: '1px solid rgba(230,168,23,0.2)', background: 'rgba(230,168,23,0.04)' }}
-    >
-      <div className="grid grid-cols-3 divide-x" style={{ borderColor: 'rgba(230,168,23,0.15)' }}>
-        <CostCard
-          label="Total Recipe Cost"
-          value={totalRecipeCost}
-          sublabel="All materials at market price"
-          accent="#e6a817"
-        />
-        <CostCard
-          label="Already Invested"
-          value={investedValue}
-          sublabel="Value of stock on hand"
-          accent="#34d399"
-        />
-        <CostCard
-          label="Still to Buy"
-          value={toBuy}
-          sublabel="Adena needed to complete"
-          accent="#fb7185"
-          highlight
-        />
-      </div>
-    </div>
-  )
-}
+  const investedPct = totalRecipeCost > 0 ? (investedValue / totalRecipeCost) * 100 : 0
+  const toBuyPct    = totalRecipeCost > 0 ? (toBuy / totalRecipeCost) * 100 : 0
 
-function CostCard({
-  label, value, sublabel, accent, highlight = false,
-}: { label: string; value: number; sublabel: string; accent: string; highlight?: boolean }) {
   return (
     <div
-      className="px-6 py-5"
-      style={highlight && value > 0 ? { background: 'rgba(251,113,133,0.05)' } : {}}
+      className="rounded-xl px-5 py-5 flex flex-col gap-4"
+      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
     >
-      <p className="text-ink-secondary text-xs font-body uppercase tracking-wider mb-2">{label}</p>
-      <p
-        className="font-display font-700 text-2xl mb-1"
-        style={{ color: value > 0 ? accent : '#4a5568' }}
-      >
-        {value > 0 ? value.toLocaleString() + ' ₳' : '—'}
-      </p>
-      <p className="text-ink-muted text-xs font-body">{sublabel}</p>
+      {/* Total */}
+      <div>
+        <p className="text-xs font-body uppercase tracking-wider mb-1" style={{ color: '#4a5568' }}>
+          Total Recipe Cost
+        </p>
+        <p className="font-display font-700 text-3xl" style={{ color: '#e6a817' }}>
+          {totalRecipeCost.toLocaleString()}
+          <span className="text-base font-500 ml-1" style={{ color: '#e6a81799' }}>₳</span>
+        </p>
+      </div>
+
+      {/* Split bar */}
+      <div className="flex rounded-full overflow-hidden" style={{ height: '6px', gap: '2px' }}>
+        {investedPct > 0 && (
+          <div
+            className="rounded-full transition-all duration-700"
+            style={{
+              width: `${investedPct}%`,
+              background: 'linear-gradient(90deg, #34d399, #10b981)',
+              boxShadow: '0 0 8px #34d39966',
+            }}
+          />
+        )}
+        {toBuyPct > 0 && (
+          <div
+            className="rounded-full transition-all duration-700"
+            style={{
+              width: `${toBuyPct}%`,
+              background: 'linear-gradient(90deg, #f87171, #fb7185)',
+              boxShadow: '0 0 8px #fb718566',
+            }}
+          />
+        )}
+      </div>
+
+      {/* Two breakdown rows */}
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#34d399' }} />
+            <span className="text-sm font-body text-ink-secondary">Invested</span>
+          </div>
+          <span className="text-sm font-body font-500" style={{ color: investedValue > 0 ? '#34d399' : '#4a5568' }}>
+            {investedValue > 0 ? investedValue.toLocaleString() + ' ₳' : '—'}
+          </span>
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#fb7185' }} />
+            <span className="text-sm font-body text-ink-secondary">Still to Buy</span>
+          </div>
+          <span className="text-sm font-body font-600" style={{ color: toBuy > 0 ? '#fb7185' : '#4a5568' }}>
+            {toBuy > 0 ? toBuy.toLocaleString() + ' ₳' : '—'}
+          </span>
+        </div>
+      </div>
     </div>
   )
 }

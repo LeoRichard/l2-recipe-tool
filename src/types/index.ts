@@ -79,6 +79,16 @@ export interface BomResult {
   grandTotalCost: number
 }
 
+export interface RecipeBomResult {
+  entryId: string
+  recipeId: string
+  quantity: number
+  outputItemId: string
+  tree: BomTreeNode[]
+  flat: BomFlatRow[]
+  grandTotalCost: number
+}
+
 // ── Data file schemas ──────────────────────────────────────────────────────
 
 export interface ItemsDatabase {

@@ -1,4 +1,4 @@
-import type { Item, Recipe, QueueEntry, InventoryEntry, PriceEntry, BomTreeNode, BomFlatRow, BomResult } from '../types'
+import type { Item, Recipe, QueueEntry, InventoryEntry, PriceEntry, BomTreeNode, BomFlatRow, BomResult, RecipeBomResult } from '../types'
 
 const MAX_DEPTH = 4
 
@@ -124,6 +124,52 @@ function buildTreeNode(
     recipeId,
     children,
   }
+}
+
+// Per-recipe BOM: shared inventory ledger depleted top-to-bottom across all entries
+export function computePerRecipeBom(
+  queue: QueueEntry[],
+  inventory: InventoryEntry[],
+  prices: PriceEntry[],
+  recipesMap: Map<string, Recipe>,
+  itemsMap: Map<string, Item>,
+): RecipeBomResult[] {
+  if (queue.length === 0) return []
+
+  const ledger = new Map<string, number>(inventory.map((e) => [e.itemId, e.quantity]))
+  const pricesMap = new Map<string, number>(prices.map((e) => [e.itemId, e.adenaPerUnit]))
+  const results: RecipeBomResult[] = []
+
+  for (const entry of queue) {
+    if (entry.quantity <= 0) continue
+    const recipe = recipesMap.get(entry.recipeId)
+    if (!recipe) continue
+
+    const tree = [buildTreeNode(recipe.outputItemId, entry.quantity, ledger, recipesMap, itemsMap, 0, new Set<string>())]
+
+    const flatAccum = new Map<string, { needed: number; available: number }>()
+    collectRawMaterials(tree, flatAccum)
+
+    const flat: BomFlatRow[] = []
+    for (const [itemId, { needed, available }] of flatAccum.entries()) {
+      const short = Math.max(0, needed - available)
+      const pricePerUnit = pricesMap.get(itemId) ?? 0
+      flat.push({ itemId, totalNeeded: needed, totalAvailable: available, totalShort: short, pricePerUnit, totalCost: short * pricePerUnit })
+    }
+    flat.sort((a, b) => b.totalShort - a.totalShort || a.itemId.localeCompare(b.itemId))
+
+    results.push({
+      entryId: entry.id,
+      recipeId: entry.recipeId,
+      quantity: entry.quantity,
+      outputItemId: recipe.outputItemId,
+      tree,
+      flat,
+      grandTotalCost: flat.reduce((s, r) => s + r.totalCost, 0),
+    })
+  }
+
+  return results
 }
 
 function collectRawMaterials(
