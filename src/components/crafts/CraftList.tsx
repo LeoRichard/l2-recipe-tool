@@ -4,6 +4,7 @@ import { itemsMap, recipesMap } from '../../lib/dataLoader'
 import { computePerRecipeBom } from '../../lib/bomEngine'
 import { BomTreeNode } from '../bom/BomTreeNode'
 import { ItemIcon } from '../shared/ItemIcon'
+import { AdenaIcon } from '../shared/AdenaIcon'
 import type { RecipeBomResult, BomFlatRow, PriceEntry } from '../../types'
 
 export function CraftList() {
@@ -374,7 +375,7 @@ function CostSummary({
         </p>
         <p className="font-display font-700 text-3xl" style={{ color: '#e6a817' }}>
           {totalRecipeCost.toLocaleString()}
-          <span className="text-base font-500 ml-1" style={{ color: '#e6a81799' }}>₳</span>
+          <AdenaIcon size={20} className="ml-1.5" />
         </p>
       </div>
 
@@ -400,7 +401,7 @@ function CostSummary({
             <span className="text-sm font-body text-ink-secondary">Invested</span>
           </div>
           <span className="text-sm font-body font-500" style={{ color: investedValue > 0 ? '#34d399' : '#4a5568' }}>
-            {investedValue > 0 ? investedValue.toLocaleString() + ' ₳' : '—'}
+            {investedValue > 0 ? <>{investedValue.toLocaleString()} <AdenaIcon size={12} /></> : '—'}
           </span>
         </div>
         <div className="flex items-center justify-between">
@@ -409,7 +410,7 @@ function CostSummary({
             <span className="text-sm font-body text-ink-secondary">Still to Buy</span>
           </div>
           <span className="text-sm font-body font-600" style={{ color: toBuy > 0 ? '#fb7185' : '#4a5568' }}>
-            {toBuy > 0 ? toBuy.toLocaleString() + ' ₳' : '—'}
+            {toBuy > 0 ? <>{toBuy.toLocaleString()} <AdenaIcon size={12} /></> : '—'}
           </span>
         </div>
       </div>
@@ -529,7 +530,7 @@ function FlatView({
                     {row.totalShort.toLocaleString()}
                   </span>
                   <span className="font-body text-sm font-500 text-right" style={{ color: cost > 0 ? '#e6a817' : '#4a5568' }}>
-                    {cost > 0 ? cost.toLocaleString() + ' ₳' : '—'}
+                    {cost > 0 ? <>{cost.toLocaleString()} <AdenaIcon size={11} /></> : '—'}
                   </span>
                 </div>
               )
@@ -541,7 +542,7 @@ function FlatView({
               >
                 <span className="text-ink-secondary text-xs font-body">Subtotal to buy</span>
                 <span className="font-display font-700 text-lg" style={{ color: '#e6a817' }}>
-                  {result.grandTotalCost.toLocaleString()} ₳
+                  {result.grandTotalCost.toLocaleString()} <AdenaIcon size={14} />
                 </span>
               </div>
             )}

@@ -2,6 +2,7 @@ import type { Recipe } from '../../types'
 import { itemsMap } from '../../lib/dataLoader'
 import { useAppStore } from '../../store/appStore'
 import { ItemIcon } from '../shared/ItemIcon'
+import { AdenaIcon } from '../shared/AdenaIcon'
 
 interface Props { recipe: Recipe }
 
@@ -88,7 +89,7 @@ export function RecipeCard({ recipe }: Props) {
         {/* Action row */}
         <div className="flex items-center justify-between pt-1 border-t border-white/[0.05]">
           <span className="text-ink-muted text-sm font-body">
-            {recipe.adenaFee > 0 ? `${recipe.adenaFee.toLocaleString()} ₳` : ''}
+            {recipe.adenaFee > 0 ? <>{recipe.adenaFee.toLocaleString()} <AdenaIcon size={12} /></> : null}
           </span>
           <button
             onClick={handleAdd}

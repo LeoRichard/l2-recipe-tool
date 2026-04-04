@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useAppStore } from '../../store/appStore'
 import { allItems, itemsMap } from '../../lib/dataLoader'
 import { ItemIcon } from '../shared/ItemIcon'
+import { AdenaIcon } from '../shared/AdenaIcon'
 
 const CATALOG = allItems
   .filter((item) => item.category === 'material')
@@ -69,7 +70,7 @@ export function PricesPanel() {
                 Material
               </span>
               <span className="text-xs font-body font-500 uppercase tracking-wider text-right" style={{ color: '#4a5568' }}>
-                Price / unit (₳)
+                Price / unit <AdenaIcon size={11} />
               </span>
             </div>
 

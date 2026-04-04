@@ -256,6 +256,174 @@
       "iconName": "etc_piece_bone_white_i00",
       "category": "material",
       "recipeId": null
+    },
+    {
+      "id": "4192",
+      "slug": "recipe-sword-of-damascus-100",
+      "name": "Recipe: Sword of Damascus (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "79",
+      "slug": "sword-of-damascus",
+      "name": "Sword of Damascus",
+      "iconName": "weapon_sword_of_damascus_i00",
+      "category": "recipe_output",
+      "recipeId": "4192"
+    },
+    {
+      "id": "4114",
+      "slug": "sword-of-damascus-blade",
+      "name": "Sword of Damascus Blade",
+      "iconName": "etc_sword_body_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4047",
+      "slug": "craftsman-mold",
+      "name": "Craftsman Mold",
+      "iconName": "etc_mold_i00",
+      "category": "recipe_output",
+      "recipeId": "4124"
+    },
+    {
+      "id": "1888",
+      "slug": "synthetic-cokes",
+      "name": "Synthetic Cokes",
+      "iconName": "etc_synthetic_cokes_i00",
+      "category": "recipe_output",
+      "recipeId": "2143"
+    },
+    {
+      "id": "4124",
+      "slug": "recipe-craftsman-mold-100",
+      "name": "Recipe: Craftsman Mold (100%)",
+      "iconName": "etc_recipe_yellow_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1891",
+      "slug": "artisans-frame",
+      "name": "Artisan's Frame",
+      "iconName": "etc_artisans_frame_i00",
+      "category": "recipe_output",
+      "recipeId": "2146"
+    },
+    {
+      "id": "2143",
+      "slug": "recipe-synthetic-cokes",
+      "name": "Recipe: Synthetic Cokes",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1879",
+      "slug": "cokes",
+      "name": "Cokes",
+      "iconName": "etc_oil_pot_black_i00",
+      "category": "recipe_output",
+      "recipeId": "2136"
+    },
+    {
+      "id": "1874",
+      "slug": "oriharukon-ore",
+      "name": "Oriharukon Ore",
+      "iconName": "etc_oriharukon_ore_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2146",
+      "slug": "recipe-artisans-frame",
+      "name": "Recipe: Artisan's frame",
+      "iconName": "etc_recipe_blue_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1883",
+      "slug": "steel-mold",
+      "name": "Steel Mold",
+      "iconName": "etc_mold_i00",
+      "category": "recipe_output",
+      "recipeId": "2139"
+    },
+    {
+      "id": "1877",
+      "slug": "adamantite-nugget",
+      "name": "Adamantite Nugget",
+      "iconName": "etc_adamantite_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2136",
+      "slug": "recipe-cokes",
+      "name": "Recipe: Cokes",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1870",
+      "slug": "coal",
+      "name": "Coal",
+      "iconName": "etc_coal_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "1871",
+      "slug": "charcoal",
+      "name": "Charcoal",
+      "iconName": "etc_charcoal_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2139",
+      "slug": "recipe-steel-mold",
+      "name": "Recipe: Steel Mold",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "4197",
+      "slug": "recipe-demons-dagger-100",
+      "name": "Recipe: Demon's Dagger (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "234",
+      "slug": "demons-dagger",
+      "name": "Demon's Dagger",
+      "iconName": "weapon_demons_sword_i00",
+      "category": "recipe_output",
+      "recipeId": "4197"
+    },
+    {
+      "id": "4119",
+      "slug": "demons-dagger-edge",
+      "name": "Demon's Dagger Edge",
+      "iconName": "etc_sword_body_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "5005",
+      "slug": "recipe-demons-dagger-60",
+      "name": "Recipe: Demon's Dagger (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
     }
   ]
 }

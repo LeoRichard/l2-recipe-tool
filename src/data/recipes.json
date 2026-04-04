@@ -208,6 +208,238 @@
         }
       ],
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2138-recipe-coarse-bone-powder-100"
+    },
+    {
+      "id": "4192",
+      "name": "Recipe: Sword of Damascus (100%)",
+      "outputItemId": "79",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "4114",
+          "quantity": 13
+        },
+        {
+          "itemId": "4047",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 172
+        },
+        {
+          "itemId": "1888",
+          "quantity": 172
+        },
+        {
+          "itemId": "4042",
+          "quantity": 86
+        },
+        {
+          "itemId": "1460",
+          "quantity": 341
+        },
+        {
+          "itemId": "2132",
+          "quantity": 98
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4192-recipe-sword-of-damascus-100"
+    },
+    {
+      "id": "4124",
+      "name": "Recipe: Craftsman Mold (100%)",
+      "outputItemId": "4047",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 60,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1891",
+          "quantity": 2
+        },
+        {
+          "itemId": "4041",
+          "quantity": 20
+        },
+        {
+          "itemId": "4042",
+          "quantity": 5
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4124-recipe-craftsman-mold-100"
+    },
+    {
+      "id": "2143",
+      "name": "Recipe: Synthetic Cokes",
+      "outputItemId": "1888",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 20,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1879",
+          "quantity": 3
+        },
+        {
+          "itemId": "1874",
+          "quantity": 1
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2143-recipe-synthetic-cokes"
+    },
+    {
+      "id": "2146",
+      "name": "Recipe: Artisan's frame",
+      "outputItemId": "1891",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 40,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1883",
+          "quantity": 1
+        },
+        {
+          "itemId": "1887",
+          "quantity": 5
+        },
+        {
+          "itemId": "1877",
+          "quantity": 10
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2146-recipe-artisans-frame"
+    },
+    {
+      "id": "2136",
+      "name": "Recipe: Cokes",
+      "outputItemId": "1879",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 10,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1870",
+          "quantity": 3
+        },
+        {
+          "itemId": "1871",
+          "quantity": 3
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2136-recipe-cokes"
+    },
+    {
+      "id": "2139",
+      "name": "Recipe: Steel Mold",
+      "outputItemId": "1883",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 20,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "1878",
+          "quantity": 5
+        },
+        {
+          "itemId": "1869",
+          "quantity": 5
+        },
+        {
+          "itemId": "1870",
+          "quantity": 5
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2139-recipe-steel-mold"
+    },
+    {
+      "id": "4197",
+      "name": "Recipe: Demon's Dagger (100%)",
+      "outputItemId": "234",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "4119",
+          "quantity": 13
+        },
+        {
+          "itemId": "4047",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 172
+        },
+        {
+          "itemId": "1888",
+          "quantity": 172
+        },
+        {
+          "itemId": "4042",
+          "quantity": 86
+        },
+        {
+          "itemId": "1460",
+          "quantity": 341
+        },
+        {
+          "itemId": "2132",
+          "quantity": 98
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4197-recipe-demons-dagger-100"
+    },
+    {
+      "id": "5005",
+      "name": "Recipe: Demon's Dagger (60%)",
+      "outputItemId": "234",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "materials": [
+        {
+          "itemId": "4119",
+          "quantity": 13
+        },
+        {
+          "itemId": "1891",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 120
+        },
+        {
+          "itemId": "1888",
+          "quantity": 120
+        },
+        {
+          "itemId": "4042",
+          "quantity": 60
+        },
+        {
+          "itemId": "1460",
+          "quantity": 160
+        },
+        {
+          "itemId": "2132",
+          "quantity": 98
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/5005-recipe-demons-dagger-60"
     }
   ]
 }
