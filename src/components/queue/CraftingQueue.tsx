@@ -46,7 +46,7 @@ export function CraftingQueue() {
           >
             {totalCrafts} craft{totalCrafts !== 1 ? 's' : ''} planned
           </span>
-          <button onClick={() => setActiveSection('bom')} className="btn-amber">
+          <button onClick={() => setActiveSection('crafts')} className="btn-amber">
             View Materials →
           </button>
         </div>
