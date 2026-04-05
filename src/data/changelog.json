@@ -1,0 +1,24 @@
+{
+  "current": "0.1.0",
+  "entries": [
+    {
+      "version": "0.1.0",
+      "date": "2026-04-04",
+      "label": "Initial Release",
+      "changes": [
+        { "type": "feat", "text": "Recipe browser — search and browse all scraped recipes" },
+        { "type": "feat", "text": "My Crafts — per-recipe BOM with shared inventory depletion" },
+        { "type": "feat", "text": "Recursive BOM engine expanding sub-recipes up to 4 levels deep" },
+        { "type": "feat", "text": "Adena cost tracking — total cost, invested value, still to buy" },
+        { "type": "feat", "text": "Completion progress bar per recipe" },
+        { "type": "feat", "text": "Market Prices — global material price catalog" },
+        { "type": "feat", "text": "Inventory management with quantity tracking" },
+        { "type": "feat", "text": "Export / Import state as JSON" },
+        { "type": "feat", "text": "Wiki scraper + BFS discovery agent for full recipe chains" },
+        { "type": "data", "text": "Bow of Peril full chain (9 recipes)" },
+        { "type": "data", "text": "Sword of Damascus full chain (6 recipes)" },
+        { "type": "data", "text": "Demon's Dagger 60% and 100% (2 recipes)" }
+      ]
+    }
+  ]
+}
