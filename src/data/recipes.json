@@ -43,7 +43,9 @@
           "quantity": 98
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4199-recipe-bow-of-peril-100"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4199-recipe-bow-of-peril-100",
+      "category": "weapon",
+      "subcategory": "Bow"
     },
     {
       "id": "4122",
@@ -67,7 +69,9 @@
           "quantity": 10
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4122-recipe-maestro-holder-100"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4122-recipe-maestro-holder-100",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2145",
@@ -91,7 +95,9 @@
           "quantity": 1
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2145-recipe-mithril-alloy"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2145-recipe-mithril-alloy",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2144",
@@ -111,7 +117,9 @@
           "quantity": 5
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2144-recipe-compound-braid"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2144-recipe-compound-braid",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2140",
@@ -131,7 +139,9 @@
           "quantity": 3
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2140-recipe-high-grade-suede"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2140-recipe-high-grade-suede",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2142",
@@ -155,7 +165,9 @@
           "quantity": 1
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2142-recipe-varnish-of-purity"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2142-recipe-varnish-of-purity",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2137",
@@ -175,7 +187,9 @@
           "quantity": 5
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2137-recipe-steel"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2137-recipe-steel",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2135",
@@ -191,7 +205,9 @@
           "quantity": 5
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2135-recipe-braided-hemp"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2135-recipe-braided-hemp",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2138",
@@ -207,7 +223,9 @@
           "quantity": 10
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2138-recipe-coarse-bone-powder-100"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2138-recipe-coarse-bone-powder-100",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "4192",
@@ -247,7 +265,9 @@
           "quantity": 98
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4192-recipe-sword-of-damascus-100"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4192-recipe-sword-of-damascus-100",
+      "category": "weapon",
+      "subcategory": "Sword"
     },
     {
       "id": "4124",
@@ -271,7 +291,9 @@
           "quantity": 5
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4124-recipe-craftsman-mold-100"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4124-recipe-craftsman-mold-100",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2143",
@@ -291,7 +313,9 @@
           "quantity": 1
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2143-recipe-synthetic-cokes"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2143-recipe-synthetic-cokes",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2146",
@@ -315,7 +339,9 @@
           "quantity": 10
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2146-recipe-artisans-frame"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2146-recipe-artisans-frame",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2136",
@@ -335,7 +361,9 @@
           "quantity": 3
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2136-recipe-cokes"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2136-recipe-cokes",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "2139",
@@ -359,7 +387,9 @@
           "quantity": 5
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2139-recipe-steel-mold"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2139-recipe-steel-mold",
+      "category": "other",
+      "subcategory": "Material"
     },
     {
       "id": "4197",
@@ -441,7 +471,9 @@
           "quantity": 98
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/5005-recipe-demons-dagger-60"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/5005-recipe-demons-dagger-60",
+      "category": "weapon",
+      "subcategory": "Dagger"
     }
   ]
 }
