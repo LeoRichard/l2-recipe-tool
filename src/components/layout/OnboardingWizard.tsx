@@ -61,10 +61,11 @@ export function useOnboarding() {
 }
 
 interface Props {
-  onDismiss: (permanent: boolean) => void
+  onDismiss: (permanent?: boolean) => void
+  manualTrigger?: boolean
 }
 
-export function OnboardingWizard({ onDismiss }: Props) {
+export function OnboardingWizard({ onDismiss, manualTrigger = false }: Props) {
   const [step, setStep] = useState(0)
   const current = STEPS[step]
   const isLast = step === STEPS.length - 1
@@ -134,15 +135,17 @@ export function OnboardingWizard({ onDismiss }: Props) {
 
           {/* Actions */}
           <div className="flex items-center justify-between">
-            <button
-              onClick={() => onDismiss(true)}
-              className="text-sm font-body transition-colors"
-              style={{ color: '#4a5568' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#8b95a3')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = '#4a5568')}
-            >
-              Don't show again
-            </button>
+            {!manualTrigger ? (
+              <button
+                onClick={() => onDismiss(true)}
+                className="text-sm font-body transition-colors"
+                style={{ color: '#4a5568' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#8b95a3')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#4a5568')}
+              >
+                Don't show again
+              </button>
+            ) : <span />}
 
             <div className="flex items-center gap-3">
               {step > 0 && (

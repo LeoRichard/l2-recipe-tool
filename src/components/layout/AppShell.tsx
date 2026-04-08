@@ -10,6 +10,7 @@ import { OnboardingWizard, useOnboarding } from './OnboardingWizard'
 export function AppShell() {
   const activeSection = useAppStore((s) => s.activeSection)
   const { show, dismiss } = useOnboarding()
+  const handleDismiss = (permanent?: boolean) => dismiss(permanent ?? false)
 
   return (
     <div className="h-screen flex flex-col overflow-hidden" style={{ background: '#080b10' }}>
@@ -25,7 +26,7 @@ export function AppShell() {
           </div>
         </main>
       </div>
-      {show && <OnboardingWizard onDismiss={dismiss} />}
+      {show && <OnboardingWizard onDismiss={handleDismiss} />}
     </div>
   )
 }
