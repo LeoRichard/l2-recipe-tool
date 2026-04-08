@@ -105,7 +105,7 @@ export function RecipeCard({ recipe }: Props) {
             className="text-xs font-body rounded-full px-2.5 py-1"
             style={{ background: 'rgba(255,255,255,0.06)', color: '#8b95a3' }}
           >
-            {recipe.materials.length} materials
+            {recipe.materials.length} mats
           </span>
         </div>
 
