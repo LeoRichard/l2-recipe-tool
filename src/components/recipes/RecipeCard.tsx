@@ -92,7 +92,7 @@ export function RecipeCard({ recipe }: Props) {
           {recipe.category && (
             <CategoryBadge category={recipe.category} />
           )}
-          <RateBadge rate={recipe.successRate} />
+          {recipe.category !== 'other' && <RateBadge rate={recipe.successRate} />}
           {recipe.mpCost > 0 && (
             <span
               className="text-xs font-body rounded-full px-2.5 py-1"
