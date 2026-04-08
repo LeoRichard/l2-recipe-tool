@@ -5,9 +5,11 @@ import { RecipeList } from '../recipes/RecipeList'
 import { CraftList } from '../crafts/CraftList'
 import { InventoryPanel } from '../inventory/InventoryPanel'
 import { PricesPanel } from '../prices/PricesPanel'
+import { OnboardingWizard, useOnboarding } from './OnboardingWizard'
 
 export function AppShell() {
   const activeSection = useAppStore((s) => s.activeSection)
+  const { show, dismiss } = useOnboarding()
 
   return (
     <div className="h-screen flex flex-col overflow-hidden" style={{ background: '#080b10' }}>
@@ -23,6 +25,7 @@ export function AppShell() {
           </div>
         </main>
       </div>
+      {show && <OnboardingWizard onDismiss={dismiss} />}
     </div>
   )
 }
