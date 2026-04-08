@@ -1,6 +1,16 @@
 {
-  "current": "0.2.0",
+  "current": "0.3.0",
   "entries": [
+    {
+      "version": "0.3.0",
+      "date": "2026-04-08",
+      "label": "Onboarding",
+      "changes": [
+        { "type": "feat", "text": "Onboarding wizard — 4-step guide shown on first visit" },
+        { "type": "feat", "text": "'Don't show again' option persisted in localStorage" },
+        { "type": "feat", "text": "'How to' button in TopBar to reopen the guide anytime" }
+      ]
+    },
     {
       "version": "0.2.0",
       "date": "2026-04-08",
