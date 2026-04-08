@@ -1,6 +1,20 @@
 {
-  "current": "0.1.0",
+  "current": "0.2.0",
   "entries": [
+    {
+      "version": "0.2.0",
+      "date": "2026-04-08",
+      "label": "Recipe Categories",
+      "changes": [
+        { "type": "feat", "text": "Recipe category + subcategory scraped from output item page (Weapon, Armor, Accessory, Other)" },
+        { "type": "feat", "text": "Category badge on RecipeCard (⚔ Weapon, 🛡 Armor, 💍 Accessory, 📦 Other)" },
+        { "type": "feat", "text": "Changelog modal with version badge in TopBar" },
+        { "type": "feat", "text": "Adena coin SVG icon replacing ₳ symbol across all components" },
+        { "type": "improvement", "text": "Success rate badge hidden for material recipes (always 100%)" },
+        { "type": "improvement", "text": "Abbreviated 'materials' to 'mats' in RecipeCard to keep pills on one row" },
+        { "type": "data", "text": "Categories populated for all 17 recipes in the database" }
+      ]
+    },
     {
       "version": "0.1.0",
       "date": "2026-04-04",
