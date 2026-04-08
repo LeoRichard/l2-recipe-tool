@@ -13,7 +13,7 @@ const CATEGORY_STYLE: Record<RecipeCategory, { color: string; bg: string; icon: 
   other:     { color: '#8b95a3', bg: 'rgba(139,149,163,0.08)', icon: '📦' },
 }
 
-function CategoryBadge({ category, subcategory }: { category: RecipeCategory; subcategory?: string }) {
+function CategoryBadge({ category }: { category: RecipeCategory }) {
   const style = CATEGORY_STYLE[category]
   return (
     <span
@@ -21,7 +21,7 @@ function CategoryBadge({ category, subcategory }: { category: RecipeCategory; su
       style={{ background: style.bg, color: style.color }}
     >
       <span style={{ fontSize: '10px' }}>{style.icon}</span>
-      {subcategory ? subcategory : category.charAt(0).toUpperCase() + category.slice(1)}
+      {category.charAt(0).toUpperCase() + category.slice(1)}
     </span>
   )
 }
@@ -90,7 +90,7 @@ export function RecipeCard({ recipe }: Props) {
         {/* Stats row */}
         <div className="flex items-center gap-2 flex-wrap">
           {recipe.category && (
-            <CategoryBadge category={recipe.category} subcategory={recipe.subcategory} />
+            <CategoryBadge category={recipe.category} />
           )}
           <RateBadge rate={recipe.successRate} />
           {recipe.mpCost > 0 && (
