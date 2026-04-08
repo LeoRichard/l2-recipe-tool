@@ -16,6 +16,8 @@ export interface RecipeMaterial {
   quantity: number
 }
 
+export type RecipeCategory = 'weapon' | 'armor' | 'accessory' | 'other'
+
 export interface Recipe {
   id: string
   name: string
@@ -24,6 +26,8 @@ export interface Recipe {
   successRate: number
   mpCost: number
   adenaFee: number
+  category?: RecipeCategory
+  subcategory?: string
   materials: RecipeMaterial[]
   scraperUrl: string
 }

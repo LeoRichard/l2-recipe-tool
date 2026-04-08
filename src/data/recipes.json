@@ -399,7 +399,9 @@
           "quantity": 98
         }
       ],
-      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4197-recipe-demons-dagger-100"
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4197-recipe-demons-dagger-100",
+      "category": "weapon",
+      "subcategory": "Dagger"
     },
     {
       "id": "5005",

@@ -1,10 +1,30 @@
-import type { Recipe } from '../../types'
+import type { Recipe, RecipeCategory } from '../../types'
 import { itemsMap } from '../../lib/dataLoader'
 import { useAppStore } from '../../store/appStore'
 import { ItemIcon } from '../shared/ItemIcon'
 import { AdenaIcon } from '../shared/AdenaIcon'
 
 interface Props { recipe: Recipe }
+
+const CATEGORY_STYLE: Record<RecipeCategory, { color: string; bg: string; icon: string }> = {
+  weapon:    { color: '#fb923c', bg: 'rgba(251,146,60,0.1)',   icon: '⚔' },
+  armor:     { color: '#60a5fa', bg: 'rgba(96,165,250,0.1)',   icon: '🛡' },
+  accessory: { color: '#c084fc', bg: 'rgba(192,132,252,0.1)',  icon: '💍' },
+  other:     { color: '#8b95a3', bg: 'rgba(139,149,163,0.08)', icon: '📦' },
+}
+
+function CategoryBadge({ category, subcategory }: { category: RecipeCategory; subcategory?: string }) {
+  const style = CATEGORY_STYLE[category]
+  return (
+    <span
+      className="text-xs font-body font-500 rounded-full px-2.5 py-1 flex items-center gap-1"
+      style={{ background: style.bg, color: style.color }}
+    >
+      <span style={{ fontSize: '10px' }}>{style.icon}</span>
+      {subcategory ? subcategory : category.charAt(0).toUpperCase() + category.slice(1)}
+    </span>
+  )
+}
 
 function RateBadge({ rate }: { rate: number }) {
   const [bg, color] =
@@ -69,6 +89,9 @@ export function RecipeCard({ recipe }: Props) {
 
         {/* Stats row */}
         <div className="flex items-center gap-2 flex-wrap">
+          {recipe.category && (
+            <CategoryBadge category={recipe.category} subcategory={recipe.subcategory} />
+          )}
           <RateBadge rate={recipe.successRate} />
           {recipe.mpCost > 0 && (
             <span

@@ -1,6 +1,30 @@
 import * as cheerio from 'cheerio'
 import { fetchPage, parseIdAndSlugFromUrl } from './fetcher.js'
 
+const CATEGORY_MAP = {
+  weapon:    ['weapon'],
+  armor:     ['armor'],
+  accessory: ['accessory', 'jewel', 'jewelry'],
+}
+
+function parseItemType(rawType) {
+  // e.g. "Weapon / Dagger / One-handed"  → { category: 'weapon', subcategory: 'Dagger' }
+  // e.g. "Armor / Light Armor"            → { category: 'armor',  subcategory: 'Light Armor' }
+  // e.g. "Other / Material"               → { category: 'other',  subcategory: 'Material' }
+  if (!rawType) return { category: 'other', subcategory: '' }
+
+  const parts = rawType.split('/').map((p) => p.trim()).filter(Boolean)
+  const first = parts[0]?.toLowerCase() ?? ''
+
+  let category = 'other'
+  for (const [cat, keywords] of Object.entries(CATEGORY_MAP)) {
+    if (keywords.some((k) => first.startsWith(k))) { category = cat; break }
+  }
+
+  const subcategory = parts[1] ?? ''
+  return { category, subcategory }
+}
+
 function makeAccumulator() {
   return { items: [], recipes: [], seenIds: new Set() }
 }
@@ -107,6 +131,24 @@ async function parseRecipePage($, id, slug, url, maxDepth, currentDepth, acc) {
     outputIconName = extractIconName(firstLink.find('.item-icon img').attr('src') || '')
   })
 
+  // ── Fetch output item page to get category ───────────────────────────
+  let recipeCategory = 'other'
+  let recipeSubcategory = ''
+
+  if (outputItemId && outputSlug) {
+    try {
+      const outputUrl = `https://wikipedia1.mw2.wiki/lu4/item/${outputItemId}-${outputSlug}`
+      const outputHtml = await fetchPage(outputUrl)
+      if (outputHtml) {
+        const $out = cheerio.load(outputHtml)
+        const rawType = $out('.item-name__type').first().text().trim()
+        ;({ category: recipeCategory, subcategory: recipeSubcategory } = parseItemType(rawType))
+      }
+    } catch {
+      // non-fatal — keep defaults
+    }
+  }
+
   if (outputItemId) {
     pushItem(acc, {
       id: outputItemId,
@@ -179,6 +221,8 @@ async function parseRecipePage($, id, slug, url, maxDepth, currentDepth, acc) {
     successRate,
     mpCost,
     adenaFee,
+    category: recipeCategory,
+    subcategory: recipeSubcategory,
     materials: materials.map((m) => ({ itemId: m.itemId, quantity: m.quantity })),
     scraperUrl: url,
   }
