@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import type { BomResult, PriceEntry } from '../../types'
 import { useAppStore } from '../../store/appStore'
 import { itemsMap, recipesMap } from '../../lib/dataLoader'
@@ -8,7 +9,8 @@ import { ItemIcon } from '../shared/ItemIcon'
 import { AdenaIcon } from '../shared/AdenaIcon'
 
 export function BomPanel() {
-  const { queue, inventory, prices, setActiveSection } = useAppStore()
+  const { queue, inventory, prices } = useAppStore()
+  const navigate = useNavigate()
   const [tab, setTab] = useState<'flat' | 'tree'>('flat')
 
   const result = useMemo(
@@ -36,7 +38,7 @@ export function BomPanel() {
           </div>
           <p className="font-display font-600 text-xl text-ink mb-2">No active queue</p>
           <p className="text-ink-secondary text-base mb-6">Add recipes to the queue to see material requirements</p>
-          <button onClick={() => setActiveSection('recipes')} className="btn-amber">Browse Recipes</button>
+          <button onClick={() => navigate('/recipes')} className="btn-amber">Browse Recipes</button>
         </div>
       </div>
     )
@@ -90,7 +92,7 @@ export function BomPanel() {
             >
               <p className="text-ink-muted text-sm font-body">No prices set yet.</p>
               <button
-                onClick={() => setActiveSection('prices')}
+                onClick={() => navigate('/prices')}
                 className="btn-amber text-sm flex-shrink-0"
                 style={{ padding: '5px 12px' }}
               >

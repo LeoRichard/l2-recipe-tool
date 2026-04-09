@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import type { Recipe, RecipeCategory } from '../../types'
 import { itemsMap } from '../../lib/dataLoader'
 import { useAppStore } from '../../store/appStore'
@@ -42,13 +43,14 @@ function RateBadge({ rate }: { rate: number }) {
 }
 
 export function RecipeCard({ recipe }: Props) {
-  const { addToQueue, setActiveSection, queue } = useAppStore()
+  const { addToQueue, queue } = useAppStore()
+  const navigate = useNavigate()
   const outputItem = itemsMap.get(recipe.outputItemId)
   const alreadyQueued = queue.some((e) => e.recipeId === recipe.id)
 
   function handleAdd() {
     if (!alreadyQueued) addToQueue(recipe.id)
-    setActiveSection('crafts')
+    navigate('/crafts')
   }
 
   const displayName = recipe.name.replace(/^Recipe:\s*/i, '')

@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import { useAppStore } from '../../store/appStore'
 import { itemsMap, recipesMap } from '../../lib/dataLoader'
 import { ItemIcon } from '../shared/ItemIcon'
 
 export function CraftingQueue() {
-  const { queue, removeFromQueue, setQueueQty, moveQueueItem, setActiveSection } = useAppStore()
+  const { queue, removeFromQueue, setQueueQty, moveQueueItem } = useAppStore()
+  const navigate = useNavigate()
   const totalCrafts = queue.reduce((s, e) => s + e.quantity, 0)
 
   if (queue.length === 0) {
@@ -24,7 +26,7 @@ export function CraftingQueue() {
           </div>
           <p className="font-display font-600 text-xl text-ink mb-2">Your forge awaits</p>
           <p className="text-ink-secondary text-base mb-6">Add recipes to start planning your crafts</p>
-          <button onClick={() => setActiveSection('recipes')} className="btn-amber">
+          <button onClick={() => navigate('/recipes')} className="btn-amber">
             Browse Recipes
           </button>
         </div>
@@ -46,7 +48,7 @@ export function CraftingQueue() {
           >
             {totalCrafts} craft{totalCrafts !== 1 ? 's' : ''} planned
           </span>
-          <button onClick={() => setActiveSection('crafts')} className="btn-amber">
+          <button onClick={() => navigate('/crafts')} className="btn-amber">
             View Materials →
           </button>
         </div>

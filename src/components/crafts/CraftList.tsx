@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAppStore } from '../../store/appStore'
 import { itemsMap, recipesMap } from '../../lib/dataLoader'
 import { computePerRecipeBom } from '../../lib/bomEngine'
@@ -8,7 +9,8 @@ import { AdenaIcon } from '../shared/AdenaIcon'
 import type { RecipeBomResult, BomFlatRow, PriceEntry } from '../../types'
 
 export function CraftList() {
-  const { queue, inventory, prices, setActiveSection, removeFromQueue, setQueueQty, moveQueueItem } = useAppStore()
+  const { queue, inventory, prices, removeFromQueue, setQueueQty, moveQueueItem } = useAppStore()
+  const navigate = useNavigate()
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
   const [tabMap, setTabMap] = useState<Record<string, 'flat' | 'tree'>>({})
 
@@ -54,7 +56,7 @@ export function CraftList() {
           </div>
           <p className="font-display font-600 text-xl text-ink mb-2">No crafts yet</p>
           <p className="text-ink-secondary text-base mb-6">Browse recipes and add them to start tracking materials</p>
-          <button onClick={() => setActiveSection('recipes')} className="btn-amber">
+          <button onClick={() => navigate('/recipes')} className="btn-amber">
             Browse Recipes
           </button>
         </div>
@@ -239,7 +241,7 @@ export function CraftList() {
                   prices={prices}
                   tab={getTab(result.entryId)}
                   setTab={(t) => setTab(result.entryId, t)}
-                  onSetPrices={() => setActiveSection('prices')}
+                  onSetPrices={() => navigate('/prices')}
                 />
               </div>
             )}
@@ -257,7 +259,7 @@ export function CraftList() {
             No prices set — add them in <span className="text-ink-secondary">Market Prices</span> to see cost estimates.
           </p>
           <button
-            onClick={() => setActiveSection('prices')}
+            onClick={() => navigate('/prices')}
             className="btn-amber text-sm flex-shrink-0"
             style={{ padding: '5px 12px' }}
           >

@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
-import { useAppStore, type Section } from '../../store/appStore'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useAppStore } from '../../store/appStore'
 
-const NAV: { section: Section; label: string; icon: React.ReactNode }[] = [
+const NAV: { path: string; label: string; icon: React.ReactNode }[] = [
   {
-    section: 'recipes',
+    path: '/recipes',
     label: 'Recipes',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -16,7 +17,7 @@ const NAV: { section: Section; label: string; icon: React.ReactNode }[] = [
     ),
   },
   {
-    section: 'crafts',
+    path: '/crafts',
     label: 'My Crafts',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -25,7 +26,7 @@ const NAV: { section: Section; label: string; icon: React.ReactNode }[] = [
     ),
   },
   {
-    section: 'inventory',
+    path: '/inventory',
     label: 'Inventory',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -36,7 +37,7 @@ const NAV: { section: Section; label: string; icon: React.ReactNode }[] = [
     ),
   },
   {
-    section: 'prices',
+    path: '/prices',
     label: 'Market Prices',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -55,7 +56,9 @@ interface Props {
 }
 
 export function Sidebar({ mobileOpen, onClose }: Props) {
-  const { activeSection, setActiveSection, queue } = useAppStore()
+  const { queue } = useAppStore()
+  const navigate = useNavigate()
+  const location = useLocation()
 
   // Close on Escape
   useEffect(() => {
@@ -64,8 +67,8 @@ export function Sidebar({ mobileOpen, onClose }: Props) {
     return () => window.removeEventListener('keydown', fn)
   }, [onClose])
 
-  function navigate(section: Section) {
-    setActiveSection(section)
+  function goTo(path: string) {
+    navigate(path)
     onClose()
   }
 
@@ -105,12 +108,12 @@ export function Sidebar({ mobileOpen, onClose }: Props) {
         <p className="text-ink-muted text-2xs font-600 uppercase tracking-widest px-2 mb-2">
           Navigation
         </p>
-        {NAV.map(({ section, label, icon }) => {
-          const active = activeSection === section
+        {NAV.map(({ path, label, icon }) => {
+          const active = location.pathname === path
           return (
             <button
-              key={section}
-              onClick={() => navigate(section)}
+              key={path}
+              onClick={() => goTo(path)}
               className="relative w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all"
               style={
                 active
@@ -138,7 +141,7 @@ export function Sidebar({ mobileOpen, onClose }: Props) {
               )}
               <span className="flex-shrink-0">{icon}</span>
               <span className="font-body text-sm font-500">{label}</span>
-              {section === 'crafts' && queue.length > 0 && (
+              {path === '/crafts' && queue.length > 0 && (
                 <span
                   className="ml-auto text-2xs font-600 rounded-full px-1.5 py-0.5 min-w-[20px] text-center"
                   style={{ background: 'rgba(230,168,23,0.2)', color: '#e6a817' }}
