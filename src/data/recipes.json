@@ -474,6 +474,106 @@
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/5005-recipe-demons-dagger-60",
       "category": "weapon",
       "subcategory": "Dagger"
+    },
+    {
+      "id": "3014",
+      "name": "Recipe: Full Plate Boots",
+      "outputItemId": "2438",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 165,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "None",
+      "materials": [
+        {
+          "itemId": "2961",
+          "quantity": 11
+        },
+        {
+          "itemId": "1894",
+          "quantity": 24
+        },
+        {
+          "itemId": "1885",
+          "quantity": 3
+        },
+        {
+          "itemId": "1459",
+          "quantity": 24
+        },
+        {
+          "itemId": "2131",
+          "quantity": 10
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/3014-recipe-full-plate-boots"
+    },
+    {
+      "id": "2148",
+      "name": "Recipe: Crafted Leather",
+      "outputItemId": "1894",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 40,
+      "adenaFee": 0,
+      "category": "other",
+      "subcategory": "",
+      "materials": [
+        {
+          "itemId": "1884",
+          "quantity": 4
+        },
+        {
+          "itemId": "1882",
+          "quantity": 4
+        },
+        {
+          "itemId": "1870",
+          "quantity": 4
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2148-recipe-crafted-leather"
+    },
+    {
+      "id": "1817",
+      "name": "Recipe: Cord",
+      "outputItemId": "1884",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 20,
+      "adenaFee": 0,
+      "category": "other",
+      "subcategory": "",
+      "materials": [
+        {
+          "itemId": "1880",
+          "quantity": 2
+        },
+        {
+          "itemId": "1868",
+          "quantity": 25
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/1817-recipe-cord"
+    },
+    {
+      "id": "1814",
+      "name": "Recipe: Leather",
+      "outputItemId": "1882",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 10,
+      "adenaFee": 0,
+      "category": "other",
+      "subcategory": "",
+      "materials": [
+        {
+          "itemId": "1867",
+          "quantity": 6
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/1814-recipe-leather"
     }
   ]
 }

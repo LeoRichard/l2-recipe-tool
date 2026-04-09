@@ -424,6 +424,102 @@
       "iconName": "etc_recipe_red_i00",
       "category": "recipe_scroll",
       "recipeId": null
+    },
+    {
+      "id": "3014",
+      "slug": "recipe-full-plate-boots",
+      "name": "Recipe: Full Plate Boots",
+      "iconName": "etc_recipe_yellow_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "2438",
+      "slug": "full-plate-boots",
+      "name": "Full Plate Boots",
+      "iconName": "armor_t62_b_i00",
+      "category": "recipe_output",
+      "recipeId": "3014"
+    },
+    {
+      "id": "2961",
+      "slug": "full-plate-boots-part",
+      "name": "Full Plate Boots Part",
+      "iconName": "etc_plate_silver_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "1894",
+      "slug": "crafted-leather",
+      "name": "Crafted Leather",
+      "iconName": "etc_crafted_leather_i00",
+      "category": "recipe_output",
+      "recipeId": "2148"
+    },
+    {
+      "id": "1459",
+      "slug": "crystal-c-grade",
+      "name": "Crystal (C-Grade)",
+      "iconName": "etc_crystal_green_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2131",
+      "slug": "gemstone-c",
+      "name": "Gemstone C",
+      "iconName": "etc_crystal_ball_green_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2148",
+      "slug": "recipe-crafted-leather",
+      "name": "Recipe: Crafted Leather",
+      "iconName": "etc_recipe_blue_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1884",
+      "slug": "cord",
+      "name": "Cord",
+      "iconName": "etc_skein_gray_i00",
+      "category": "recipe_output",
+      "recipeId": "1817"
+    },
+    {
+      "id": "1882",
+      "slug": "leather",
+      "name": "Leather",
+      "iconName": "etc_leather_i00",
+      "category": "recipe_output",
+      "recipeId": "1814"
+    },
+    {
+      "id": "1817",
+      "slug": "recipe-cord",
+      "name": "Recipe: Cord",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1814",
+      "slug": "recipe-leather",
+      "name": "Recipe: Leather",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1867",
+      "slug": "animal-skin",
+      "name": "Animal Skin",
+      "iconName": "etc_leather_brown_i00",
+      "category": "material",
+      "recipeId": null
     }
   ]
 }
