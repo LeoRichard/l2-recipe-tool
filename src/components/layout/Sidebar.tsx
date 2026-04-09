@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useAppStore, type Section } from '../../store/appStore'
 
 const NAV: { section: Section; label: string; icon: React.ReactNode }[] = [
@@ -48,13 +49,30 @@ const NAV: { section: Section; label: string; icon: React.ReactNode }[] = [
   },
 ]
 
-export function Sidebar() {
+interface Props {
+  mobileOpen: boolean
+  onClose: () => void
+}
+
+export function Sidebar({ mobileOpen, onClose }: Props) {
   const { activeSection, setActiveSection, queue } = useAppStore()
 
-  return (
+  // Close on Escape
+  useEffect(() => {
+    const fn = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', fn)
+    return () => window.removeEventListener('keydown', fn)
+  }, [onClose])
+
+  function navigate(section: Section) {
+    setActiveSection(section)
+    onClose()
+  }
+
+  const sidebarContent = (
     <aside
       style={{ background: 'linear-gradient(180deg, #0c1018 0%, #080b10 100%)' }}
-      className="w-56 flex-shrink-0 flex flex-col border-r border-white/[0.06]"
+      className="w-56 flex-shrink-0 flex flex-col border-r border-white/[0.06] h-full"
     >
       {/* Brand */}
       <div className="px-5 pt-6 pb-5">
@@ -64,7 +82,7 @@ export function Sidebar() {
             style={{ background: 'linear-gradient(135deg, #e6a817 0%, #f59e0b 100%)' }}
           >
             <img
-              src="https://wikipedia1.mw2.wiki/i64/etc_recipe_red_i00.png"
+              src="/icons/etc_recipe_red_i00.png"
               alt="L2"
               width={20}
               height={20}
@@ -92,17 +110,12 @@ export function Sidebar() {
           return (
             <button
               key={section}
-              onClick={() => setActiveSection(section)}
+              onClick={() => navigate(section)}
               className="relative w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all"
               style={
                 active
-                  ? {
-                      background: 'rgba(230,168,23,0.1)',
-                      color: '#e6a817',
-                    }
-                  : {
-                      color: '#8b95a3',
-                    }
+                  ? { background: 'rgba(230,168,23,0.1)', color: '#e6a817' }
+                  : { color: '#8b95a3' }
               }
               onMouseEnter={(e) => {
                 if (!active) {
@@ -117,7 +130,6 @@ export function Sidebar() {
                 }
               }}
             >
-              {/* Active indicator */}
               {active && (
                 <span
                   className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-r"
@@ -147,5 +159,30 @@ export function Sidebar() {
         </p>
       </div>
     </aside>
+  )
+
+  return (
+    <>
+      {/* Desktop sidebar — always visible */}
+      <div className="hidden md:flex h-full">
+        {sidebarContent}
+      </div>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="md:hidden fixed inset-0 z-50 flex">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 animate-fade-in"
+            style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)' }}
+            onClick={onClose}
+          />
+          {/* Drawer */}
+          <div className="relative animate-slide-up flex h-full">
+            {sidebarContent}
+          </div>
+        </div>
+      )}
+    </>
   )
 }
