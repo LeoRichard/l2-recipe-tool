@@ -155,7 +155,7 @@ export function Sidebar({ mobileOpen, onClose }: Props) {
       <div className="sep mx-4 mb-3" />
       <div className="px-5 pb-5">
         <p className="text-ink-muted text-2xs text-center leading-relaxed">
-          Lineage 2 · MasterWork
+          Lineage 2
         </p>
       </div>
     </aside>
