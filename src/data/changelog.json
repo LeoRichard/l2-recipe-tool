@@ -1,6 +1,20 @@
 {
-  "current": "0.3.0",
+  "current": "0.4.0",
   "entries": [
+    {
+      "version": "0.4.0",
+      "date": "2026-04-09",
+      "label": "More Recipes",
+      "changes": [
+        { "type": "feat", "text": "Icons now served locally from /public/icons — no longer dependent on wiki CDN" },
+        { "type": "data", "text": "Full Plate set — Boots, Helmet, Armor, Gauntlets" },
+        { "type": "data", "text": "Doom set — Leather Armor, Plate Armor, Helmet, Gloves (60% and 100%)" },
+        { "type": "data", "text": "Wizard's Tear (60% and 100%)" },
+        { "type": "data", "text": "Kaim Vanul's Bones (60% and 100%)" },
+        { "type": "data", "text": "Kris (60% and 100%)" },
+        { "type": "data", "text": "DB now at 43 recipes / 115 items" }
+      ]
+    },
     {
       "version": "0.3.0",
       "date": "2026-04-08",
