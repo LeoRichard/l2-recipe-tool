@@ -896,6 +896,30 @@
       "iconName": "etc_recipe_red_i00",
       "category": "recipe_scroll",
       "recipeId": null
+    },
+    {
+      "id": "3012",
+      "slug": "recipe-full-plate-helmet",
+      "name": "Recipe: Full Plate Helmet",
+      "iconName": "etc_recipe_yellow_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "2414",
+      "slug": "full-plate-helmet",
+      "name": "Full Plate Helmet",
+      "iconName": "armor_leather_helmet_i00",
+      "category": "recipe_output",
+      "recipeId": "3012"
+    },
+    {
+      "id": "2959",
+      "slug": "full-plate-helmet-design",
+      "name": "Full Plate Helmet Design",
+      "iconName": "etc_pouch_brown_i00",
+      "category": "material",
+      "recipeId": null
     }
   ]
 }

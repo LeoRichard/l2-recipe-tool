@@ -1356,6 +1356,40 @@
         }
       ],
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4187-recipe-kris-100"
+    },
+    {
+      "id": "3012",
+      "name": "Recipe: Full Plate Helmet",
+      "outputItemId": "2414",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 165,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "None",
+      "materials": [
+        {
+          "itemId": "2959",
+          "quantity": 11
+        },
+        {
+          "itemId": "1892",
+          "quantity": 1
+        },
+        {
+          "itemId": "1894",
+          "quantity": 26
+        },
+        {
+          "itemId": "1459",
+          "quantity": 36
+        },
+        {
+          "itemId": "2131",
+          "quantity": 15
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/3012-recipe-full-plate-helmet"
     }
   ]
 }
