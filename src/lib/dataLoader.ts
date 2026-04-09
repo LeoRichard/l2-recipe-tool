@@ -16,9 +16,7 @@ export const recipesMap: Map<string, Recipe> = new Map(
 export const allItems: Item[] = itemsDb.items
 export const allRecipes: Recipe[] = recipesDb.recipes
 
-export const CDN_BASE = 'https://wikipedia1.mw2.wiki/i64/'
-
 export function getItemIconUrl(iconName: string): string {
   if (!iconName) return ''
-  return `${CDN_BASE}${iconName}.png`
+  return `/icons/${iconName}.png`
 }
