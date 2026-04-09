@@ -574,6 +574,788 @@
         }
       ],
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/1814-recipe-leather"
+    },
+    {
+      "id": "2231",
+      "name": "Recipe: Full Plate Armor",
+      "outputItemId": "356",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 165,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "Heavy",
+      "materials": [
+        {
+          "itemId": "1986",
+          "quantity": 11
+        },
+        {
+          "itemId": "1892",
+          "quantity": 4
+        },
+        {
+          "itemId": "1890",
+          "quantity": 36
+        },
+        {
+          "itemId": "1887",
+          "quantity": 12
+        },
+        {
+          "itemId": "1459",
+          "quantity": 140
+        },
+        {
+          "itemId": "2131",
+          "quantity": 73
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2231-recipe-full-plate-armor"
+    },
+    {
+      "id": "2147",
+      "name": "Recipe: Blacksmith's frame",
+      "outputItemId": "1892",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 40,
+      "adenaFee": 0,
+      "category": "other",
+      "subcategory": "",
+      "materials": [
+        {
+          "itemId": "1886",
+          "quantity": 1
+        },
+        {
+          "itemId": "1887",
+          "quantity": 5
+        },
+        {
+          "itemId": "1876",
+          "quantity": 10
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2147-recipe-blacksmiths-frame"
+    },
+    {
+      "id": "2141",
+      "name": "Recipe: Silver Mold",
+      "outputItemId": "1886",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 20,
+      "adenaFee": 0,
+      "category": "other",
+      "subcategory": "",
+      "materials": [
+        {
+          "itemId": "1878",
+          "quantity": 5
+        },
+        {
+          "itemId": "1879",
+          "quantity": 5
+        },
+        {
+          "itemId": "1873",
+          "quantity": 10
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2141-recipe-silver-mold"
+    },
+    {
+      "id": "3016",
+      "name": "Recipe: Full Plate Gauntlets",
+      "outputItemId": "2462",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 165,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "None",
+      "materials": [
+        {
+          "itemId": "2963",
+          "quantity": 11
+        },
+        {
+          "itemId": "1894",
+          "quantity": 24
+        },
+        {
+          "itemId": "1885",
+          "quantity": 3
+        },
+        {
+          "itemId": "1459",
+          "quantity": 24
+        },
+        {
+          "itemId": "2131",
+          "quantity": 10
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/3016-recipe-full-plate-gauntlets"
+    },
+    {
+      "id": "4985",
+      "name": "Recipe: Leather Armor of Doom (60%)",
+      "outputItemId": "2392",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "Light",
+      "materials": [
+        {
+          "itemId": "4083",
+          "quantity": 12
+        },
+        {
+          "itemId": "1894",
+          "quantity": 100
+        },
+        {
+          "itemId": "1895",
+          "quantity": 50
+        },
+        {
+          "itemId": "1889",
+          "quantity": 25
+        },
+        {
+          "itemId": "4043",
+          "quantity": 25
+        },
+        {
+          "itemId": "1460",
+          "quantity": 48
+        },
+        {
+          "itemId": "2132",
+          "quantity": 22
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4985-recipe-leather-armor-of-doom-60"
+    },
+    {
+      "id": "2149",
+      "name": "Recipe: Metallic Fiber",
+      "outputItemId": "1895",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 40,
+      "adenaFee": 0,
+      "category": "other",
+      "subcategory": "",
+      "materials": [
+        {
+          "itemId": "1884",
+          "quantity": 20
+        },
+        {
+          "itemId": "1873",
+          "quantity": 15
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/2149-recipe-metallic-fiber"
+    },
+    {
+      "id": "4160",
+      "name": "Recipe: Leather Armor of Doom (100%)",
+      "outputItemId": "2392",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "Light",
+      "materials": [
+        {
+          "itemId": "4083",
+          "quantity": 12
+        },
+        {
+          "itemId": "4046",
+          "quantity": 3
+        },
+        {
+          "itemId": "1894",
+          "quantity": 140
+        },
+        {
+          "itemId": "1895",
+          "quantity": 70
+        },
+        {
+          "itemId": "1889",
+          "quantity": 35
+        },
+        {
+          "itemId": "4043",
+          "quantity": 35
+        },
+        {
+          "itemId": "1460",
+          "quantity": 107
+        },
+        {
+          "itemId": "2132",
+          "quantity": 22
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4160-recipe-leather-armor-of-doom-100"
+    },
+    {
+      "id": "4123",
+      "name": "Recipe: Maestro Anvil Lock (100%)",
+      "outputItemId": "4046",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 60,
+      "adenaFee": 0,
+      "category": "other",
+      "subcategory": "",
+      "materials": [
+        {
+          "itemId": "1888",
+          "quantity": 4
+        },
+        {
+          "itemId": "4039",
+          "quantity": 4
+        },
+        {
+          "itemId": "4040",
+          "quantity": 4
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4123-recipe-maestro-anvil-lock-100"
+    },
+    {
+      "id": "4991",
+      "name": "Recipe: Doom Helmet (60%)",
+      "outputItemId": "2417",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "None",
+      "materials": [
+        {
+          "itemId": "4089",
+          "quantity": 13
+        },
+        {
+          "itemId": "1892",
+          "quantity": 1
+        },
+        {
+          "itemId": "1894",
+          "quantity": 40
+        },
+        {
+          "itemId": "4043",
+          "quantity": 4
+        },
+        {
+          "itemId": "1460",
+          "quantity": 14
+        },
+        {
+          "itemId": "2132",
+          "quantity": 7
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4991-recipe-doom-helmet-60"
+    },
+    {
+      "id": "4166",
+      "name": "Recipe: Doom Helmet (100%)",
+      "outputItemId": "2417",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "None",
+      "materials": [
+        {
+          "itemId": "4089",
+          "quantity": 13
+        },
+        {
+          "itemId": "4048",
+          "quantity": 1
+        },
+        {
+          "itemId": "1894",
+          "quantity": 50
+        },
+        {
+          "itemId": "4043",
+          "quantity": 5
+        },
+        {
+          "itemId": "1460",
+          "quantity": 39
+        },
+        {
+          "itemId": "2132",
+          "quantity": 7
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4166-recipe-doom-helmet-100"
+    },
+    {
+      "id": "4125",
+      "name": "Recipe: Maestro Mold (100%)",
+      "outputItemId": "4048",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 60,
+      "adenaFee": 0,
+      "category": "other",
+      "subcategory": "",
+      "materials": [
+        {
+          "itemId": "1892",
+          "quantity": 1
+        },
+        {
+          "itemId": "4039",
+          "quantity": 10
+        },
+        {
+          "itemId": "4043",
+          "quantity": 5
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4125-recipe-maestro-mold-100"
+    },
+    {
+      "id": "4983",
+      "name": "Recipe: Doom Plate Armor (60%)",
+      "outputItemId": "2381",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "Heavy",
+      "materials": [
+        {
+          "itemId": "4081",
+          "quantity": 13
+        },
+        {
+          "itemId": "1892",
+          "quantity": 4
+        },
+        {
+          "itemId": "1890",
+          "quantity": 45
+        },
+        {
+          "itemId": "1887",
+          "quantity": 15
+        },
+        {
+          "itemId": "4043",
+          "quantity": 30
+        },
+        {
+          "itemId": "1460",
+          "quantity": 60
+        },
+        {
+          "itemId": "2132",
+          "quantity": 31
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4983-recipe-doom-plate-armor-60"
+    },
+    {
+      "id": "4158",
+      "name": "Recipe: Doom Plate Armor (100%)",
+      "outputItemId": "2381",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "Heavy",
+      "materials": [
+        {
+          "itemId": "4081",
+          "quantity": 13
+        },
+        {
+          "itemId": "4048",
+          "quantity": 4
+        },
+        {
+          "itemId": "1890",
+          "quantity": 69
+        },
+        {
+          "itemId": "1887",
+          "quantity": 23
+        },
+        {
+          "itemId": "4043",
+          "quantity": 46
+        },
+        {
+          "itemId": "1460",
+          "quantity": 136
+        },
+        {
+          "itemId": "2132",
+          "quantity": 31
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4158-recipe-doom-plate-armor-100"
+    },
+    {
+      "id": "4993",
+      "name": "Recipe: Sealed Doom Gloves (60%)",
+      "outputItemId": "2475",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "None",
+      "materials": [
+        {
+          "itemId": "4091",
+          "quantity": 13
+        },
+        {
+          "itemId": "1894",
+          "quantity": 32
+        },
+        {
+          "itemId": "1885",
+          "quantity": 4
+        },
+        {
+          "itemId": "4043",
+          "quantity": 4
+        },
+        {
+          "itemId": "1460",
+          "quantity": 8
+        },
+        {
+          "itemId": "2132",
+          "quantity": 4
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4993-recipe-sealed-doom-gloves-60"
+    },
+    {
+      "id": "4168",
+      "name": "Recipe: Sealed Doom Gloves (100%)",
+      "outputItemId": "2475",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "None",
+      "materials": [
+        {
+          "itemId": "4091",
+          "quantity": 13
+        },
+        {
+          "itemId": "4046",
+          "quantity": 1
+        },
+        {
+          "itemId": "1894",
+          "quantity": 48
+        },
+        {
+          "itemId": "1885",
+          "quantity": 6
+        },
+        {
+          "itemId": "4043",
+          "quantity": 6
+        },
+        {
+          "itemId": "1460",
+          "quantity": 15
+        },
+        {
+          "itemId": "2132",
+          "quantity": 4
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4168-recipe-sealed-doom-gloves-100"
+    },
+    {
+      "id": "8306",
+      "name": "Recipe: Wizard's Tear (60%)",
+      "outputItemId": "7889",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Sword",
+      "materials": [
+        {
+          "itemId": "8336",
+          "quantity": 13
+        },
+        {
+          "itemId": "1891",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 120
+        },
+        {
+          "itemId": "1888",
+          "quantity": 120
+        },
+        {
+          "itemId": "4042",
+          "quantity": 60
+        },
+        {
+          "itemId": "1460",
+          "quantity": 160
+        },
+        {
+          "itemId": "2132",
+          "quantity": 98
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/8306-recipe-wizards-tear-60"
+    },
+    {
+      "id": "8305",
+      "name": "Recipe: Wizard's Tear (100%)",
+      "outputItemId": "7889",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Sword",
+      "materials": [
+        {
+          "itemId": "8336",
+          "quantity": 13
+        },
+        {
+          "itemId": "4047",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 172
+        },
+        {
+          "itemId": "1888",
+          "quantity": 172
+        },
+        {
+          "itemId": "4042",
+          "quantity": 86
+        },
+        {
+          "itemId": "1460",
+          "quantity": 341
+        },
+        {
+          "itemId": "2132",
+          "quantity": 98
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/8305-recipe-wizards-tear-100"
+    },
+    {
+      "id": "8312",
+      "name": "Recipe: Kaim Vanul's Bones (60%)",
+      "outputItemId": "7893",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Blunt",
+      "materials": [
+        {
+          "itemId": "8340",
+          "quantity": 13
+        },
+        {
+          "itemId": "1890",
+          "quantity": 120
+        },
+        {
+          "itemId": "1888",
+          "quantity": 120
+        },
+        {
+          "itemId": "1885",
+          "quantity": 60
+        },
+        {
+          "itemId": "4042",
+          "quantity": 60
+        },
+        {
+          "itemId": "1460",
+          "quantity": 165
+        },
+        {
+          "itemId": "2132",
+          "quantity": 98
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/8312-recipe-kaim-vanuls-bones-60"
+    },
+    {
+      "id": "8311",
+      "name": "Recipe: Kaim Vanul's Bones (100%)",
+      "outputItemId": "7893",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Blunt",
+      "materials": [
+        {
+          "itemId": "8340",
+          "quantity": 13
+        },
+        {
+          "itemId": "4045",
+          "quantity": 3
+        },
+        {
+          "itemId": "1890",
+          "quantity": 172
+        },
+        {
+          "itemId": "1888",
+          "quantity": 172
+        },
+        {
+          "itemId": "1885",
+          "quantity": 86
+        },
+        {
+          "itemId": "4042",
+          "quantity": 86
+        },
+        {
+          "itemId": "1460",
+          "quantity": 339
+        },
+        {
+          "itemId": "2132",
+          "quantity": 98
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/8311-recipe-kaim-vanuls-bones-100"
+    },
+    {
+      "id": "4968",
+      "name": "Recipe: Kris (60%)",
+      "outputItemId": "229",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Dagger",
+      "materials": [
+        {
+          "itemId": "4109",
+          "quantity": 12
+        },
+        {
+          "itemId": "1891",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 72
+        },
+        {
+          "itemId": "1888",
+          "quantity": 72
+        },
+        {
+          "itemId": "4042",
+          "quantity": 36
+        },
+        {
+          "itemId": "1459",
+          "quantity": 360
+        },
+        {
+          "itemId": "2132",
+          "quantity": 62
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4968-recipe-kris-60"
+    },
+    {
+      "id": "4187",
+      "name": "Recipe: Kris (100%)",
+      "outputItemId": "229",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Dagger",
+      "materials": [
+        {
+          "itemId": "4109",
+          "quantity": 12
+        },
+        {
+          "itemId": "4047",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 114
+        },
+        {
+          "itemId": "1888",
+          "quantity": 114
+        },
+        {
+          "itemId": "4042",
+          "quantity": 57
+        },
+        {
+          "itemId": "1459",
+          "quantity": 517
+        },
+        {
+          "itemId": "2132",
+          "quantity": 62
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4187-recipe-kris-100"
     }
   ]
 }

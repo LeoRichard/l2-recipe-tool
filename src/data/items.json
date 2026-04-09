@@ -520,6 +520,382 @@
       "iconName": "etc_leather_brown_i00",
       "category": "material",
       "recipeId": null
+    },
+    {
+      "id": "2231",
+      "slug": "recipe-full-plate-armor",
+      "name": "Recipe: Full Plate Armor",
+      "iconName": "etc_recipe_yellow_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "356",
+      "slug": "full-plate-armor",
+      "name": "Full Plate Armor",
+      "iconName": "armor_t62_ul_i00",
+      "category": "recipe_output",
+      "recipeId": "2231"
+    },
+    {
+      "id": "1986",
+      "slug": "full-plate-armor-temper",
+      "name": "Full Plate Armor Temper",
+      "iconName": "etc_plate_silver_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "1892",
+      "slug": "blacksmiths-frame",
+      "name": "Blacksmith's Frame",
+      "iconName": "etc_blacksmiths_frame_i00",
+      "category": "recipe_output",
+      "recipeId": "2147"
+    },
+    {
+      "id": "2147",
+      "slug": "recipe-blacksmiths-frame",
+      "name": "Recipe: Blacksmith's frame",
+      "iconName": "etc_recipe_blue_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1886",
+      "slug": "silver-mold",
+      "name": "Silver Mold",
+      "iconName": "etc_silver_mold_i00",
+      "category": "recipe_output",
+      "recipeId": "2141"
+    },
+    {
+      "id": "2141",
+      "slug": "recipe-silver-mold",
+      "name": "Recipe: Silver Mold",
+      "iconName": "etc_recipe_white_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "1873",
+      "slug": "silver-nugget",
+      "name": "Silver Nugget",
+      "iconName": "etc_silver_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "3016",
+      "slug": "recipe-full-plate-gauntlets",
+      "name": "Recipe: Full Plate Gauntlets",
+      "iconName": "etc_recipe_yellow_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "2462",
+      "slug": "full-plate-gauntlets",
+      "name": "Full Plate Gauntlets",
+      "iconName": "armor_t62_g_i00",
+      "category": "recipe_output",
+      "recipeId": "3016"
+    },
+    {
+      "id": "2963",
+      "slug": "full-plate-gauntlets-part",
+      "name": "Full Plate Gauntlets Part",
+      "iconName": "etc_plate_silver_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4985",
+      "slug": "recipe-leather-armor-of-doom-60",
+      "name": "Recipe: Leather Armor of Doom (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "2392",
+      "slug": "leather-armor-of-doom",
+      "name": "Leather Armor of Doom",
+      "iconName": "armor_t72_ul_i00",
+      "category": "recipe_output",
+      "recipeId": "4985"
+    },
+    {
+      "id": "4083",
+      "slug": "leather-armor-of-doom-design",
+      "name": "Leather Armor of Doom Design",
+      "iconName": "etc_pouch_brown_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "1895",
+      "slug": "metallic-fiber",
+      "name": "Metallic Fiber",
+      "iconName": "etc_metallic_fiber_i00",
+      "category": "recipe_output",
+      "recipeId": "2149"
+    },
+    {
+      "id": "4043",
+      "slug": "asofe",
+      "name": "Asofe",
+      "iconName": "etc_gem_blue_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "2149",
+      "slug": "recipe-metallic-fiber",
+      "name": "Recipe: Metallic Fiber",
+      "iconName": "etc_recipe_blue_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "4160",
+      "slug": "recipe-leather-armor-of-doom-100",
+      "name": "Recipe: Leather Armor of Doom (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "4046",
+      "slug": "maestro-anvil-lock",
+      "name": "Maestro Anvil Lock",
+      "iconName": "etc_lump_dark_gray_i00",
+      "category": "recipe_output",
+      "recipeId": "4123"
+    },
+    {
+      "id": "4123",
+      "slug": "recipe-maestro-anvil-lock-100",
+      "name": "Recipe: Maestro Anvil Lock (100%)",
+      "iconName": "etc_recipe_yellow_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "4039",
+      "slug": "mold-glue",
+      "name": "Mold Glue",
+      "iconName": "etc_reagent_red_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4991",
+      "slug": "recipe-doom-helmet-60",
+      "name": "Recipe: Doom Helmet (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "2417",
+      "slug": "doom-helmet",
+      "name": "Doom Helmet",
+      "iconName": "armor_leather_helmet_i00",
+      "category": "recipe_output",
+      "recipeId": "4991"
+    },
+    {
+      "id": "4089",
+      "slug": "doom-helmet-pattern",
+      "name": "Doom Helmet Pattern",
+      "iconName": "etc_letter_red_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4166",
+      "slug": "recipe-doom-helmet-100",
+      "name": "Recipe: Doom Helmet (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "4048",
+      "slug": "maestro-mold",
+      "name": "Maestro Mold",
+      "iconName": "etc_silver_mold_i00",
+      "category": "recipe_output",
+      "recipeId": "4125"
+    },
+    {
+      "id": "4125",
+      "slug": "recipe-maestro-mold-100",
+      "name": "Recipe: Maestro Mold (100%)",
+      "iconName": "etc_recipe_yellow_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "4983",
+      "slug": "recipe-doom-plate-armor-60",
+      "name": "Recipe: Doom Plate Armor (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "2381",
+      "slug": "doom-plate-armor",
+      "name": "Doom Plate Armor",
+      "iconName": "armor_t71_ul_i00",
+      "category": "recipe_output",
+      "recipeId": "4983"
+    },
+    {
+      "id": "4081",
+      "slug": "doom-plate-armor-temper",
+      "name": "Doom Plate Armor Temper",
+      "iconName": "etc_lump_white_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4158",
+      "slug": "recipe-doom-plate-armor-100",
+      "name": "Recipe: Doom Plate Armor (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "4993",
+      "slug": "recipe-sealed-doom-gloves-60",
+      "name": "Recipe: Sealed Doom Gloves (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "2475",
+      "slug": "sealed-doom-gloves",
+      "name": "Sealed Doom Gloves",
+      "iconName": "armor_t71_g_i02",
+      "category": "recipe_output",
+      "recipeId": "4993"
+    },
+    {
+      "id": "4091",
+      "slug": "sealed-doom-gloves-part",
+      "name": "Sealed Doom Gloves Part",
+      "iconName": "etc_plate_silver_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4168",
+      "slug": "recipe-sealed-doom-gloves-100",
+      "name": "Recipe: Sealed Doom Gloves (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "8306",
+      "slug": "recipe-wizards-tear-60",
+      "name": "Recipe: Wizard's Tear (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "7889",
+      "slug": "wizards-tear",
+      "name": "Wizard's Tear",
+      "iconName": "weapon_tears_of_wizard_i00",
+      "category": "recipe_output",
+      "recipeId": "8306"
+    },
+    {
+      "id": "8336",
+      "slug": "blade-of-the-wizards-tear",
+      "name": "Blade of the Wizard's Tear",
+      "iconName": "etc_sword_body_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "8305",
+      "slug": "recipe-wizards-tear-100",
+      "name": "Recipe: Wizard's Tear (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "8312",
+      "slug": "recipe-kaim-vanuls-bones-60",
+      "name": "Recipe: Kaim Vanul's Bones (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "7893",
+      "slug": "kaim-vanuls-bones",
+      "name": "Kaim Vanul's Bones",
+      "iconName": "weapon_bone_of_kaim_vanul_i00",
+      "category": "recipe_output",
+      "recipeId": "8312"
+    },
+    {
+      "id": "8340",
+      "slug": "bones-head-of-kaim-vanul",
+      "name": "Bones Head of Kaim Vanul",
+      "iconName": "etc_squares_gray_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "8311",
+      "slug": "recipe-kaim-vanuls-bones-100",
+      "name": "Recipe: Kaim Vanul's Bones (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "4968",
+      "slug": "recipe-kris-60",
+      "name": "Recipe: Kris (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "229",
+      "slug": "kris",
+      "name": "Kris",
+      "iconName": "weapon_kris_i00",
+      "category": "recipe_output",
+      "recipeId": "4968"
+    },
+    {
+      "id": "4109",
+      "slug": "kris-edge",
+      "name": "Kris Edge",
+      "iconName": "etc_sword_body_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4187",
+      "slug": "recipe-kris-100",
+      "name": "Recipe: Kris (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
     }
   ]
 }
