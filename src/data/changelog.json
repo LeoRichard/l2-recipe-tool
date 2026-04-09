@@ -1,6 +1,17 @@
 {
-  "current": "0.4.0",
+  "current": "0.5.0",
   "entries": [
+    {
+      "version": "0.5.0",
+      "date": "2026-04-09",
+      "label": "Mobile Support",
+      "changes": [
+        { "type": "feat", "text": "Mobile responsive layout — hamburger menu opens a drawer with backdrop" },
+        { "type": "improvement", "text": "Sidebar closes automatically when navigating to a section on mobile" },
+        { "type": "improvement", "text": "TopBar adapts to small screens — How to and Import hidden on mobile" },
+        { "type": "fix", "text": "Sidebar logo now served from local icons instead of wiki CDN" }
+      ]
+    },
     {
       "version": "0.4.0",
       "date": "2026-04-09",
