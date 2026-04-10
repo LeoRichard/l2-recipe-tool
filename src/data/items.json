@@ -920,6 +920,30 @@
       "iconName": "etc_pouch_brown_i00",
       "category": "material",
       "recipeId": null
+    },
+    {
+      "id": "4148",
+      "slug": "recipe-avadon-robe-100",
+      "name": "Recipe: Avadon Robe (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "2406",
+      "slug": "avadon-robe",
+      "name": "Avadon Robe",
+      "iconName": "armor_t59_ul_i00",
+      "category": "recipe_output",
+      "recipeId": "4148"
+    },
+    {
+      "id": "4071",
+      "slug": "avadon-robe-fabric",
+      "name": "Avadon Robe Fabric",
+      "iconName": "etc_leather_gray_i00",
+      "category": "material",
+      "recipeId": null
     }
   ]
 }
