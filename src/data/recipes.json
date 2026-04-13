@@ -1436,6 +1436,132 @@
         }
       ],
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4148-recipe-avadon-robe-100"
+    },
+    {
+      "id": "4937",
+      "name": "Recipe: Adamantite Earrings (70%)",
+      "outputItemId": "856",
+      "outputQuantity": 1,
+      "successRate": 70,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "accessory",
+      "subcategory": "Earring",
+      "materials": [
+        {
+          "itemId": "4049",
+          "quantity": 12
+        },
+        {
+          "itemId": "1892",
+          "quantity": 1
+        },
+        {
+          "itemId": "1895",
+          "quantity": 30
+        },
+        {
+          "itemId": "1887",
+          "quantity": 6
+        },
+        {
+          "itemId": "4044",
+          "quantity": 6
+        },
+        {
+          "itemId": "1459",
+          "quantity": 28
+        },
+        {
+          "itemId": "2132",
+          "quantity": 4
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4937-recipe-adamantite-earrings-70"
+    },
+    {
+      "id": "4938",
+      "name": "Recipe: Adamantite Ring (70%)",
+      "outputItemId": "887",
+      "outputQuantity": 1,
+      "successRate": 70,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "accessory",
+      "subcategory": "Ring",
+      "materials": [
+        {
+          "itemId": "4050",
+          "quantity": 12
+        },
+        {
+          "itemId": "1886",
+          "quantity": 1
+        },
+        {
+          "itemId": "1895",
+          "quantity": 25
+        },
+        {
+          "itemId": "1887",
+          "quantity": 5
+        },
+        {
+          "itemId": "4044",
+          "quantity": 5
+        },
+        {
+          "itemId": "1459",
+          "quantity": 22
+        },
+        {
+          "itemId": "2132",
+          "quantity": 2
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4938-recipe-adamantite-ring-70"
+    },
+    {
+      "id": "4939",
+      "name": "Recipe: Adamantite Necklace (70%)",
+      "outputItemId": "918",
+      "outputQuantity": 1,
+      "successRate": 70,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "accessory",
+      "subcategory": "Necklace",
+      "materials": [
+        {
+          "itemId": "4051",
+          "quantity": 12
+        },
+        {
+          "itemId": "1892",
+          "quantity": 1
+        },
+        {
+          "itemId": "1889",
+          "quantity": 30
+        },
+        {
+          "itemId": "1887",
+          "quantity": 6
+        },
+        {
+          "itemId": "4044",
+          "quantity": 6
+        },
+        {
+          "itemId": "1459",
+          "quantity": 34
+        },
+        {
+          "itemId": "2132",
+          "quantity": 5
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4939-recipe-adamantite-necklace-70"
     }
   ]
 }

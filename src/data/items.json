@@ -944,6 +944,86 @@
       "iconName": "etc_leather_gray_i00",
       "category": "material",
       "recipeId": null
+    },
+    {
+      "id": "4937",
+      "slug": "recipe-adamantite-earrings-70",
+      "name": "Recipe: Adamantite Earrings (70%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "856",
+      "slug": "adamantite-earring",
+      "name": "Adamantite Earring",
+      "iconName": "accessary_adamantite_earing_i00",
+      "category": "recipe_output",
+      "recipeId": "4937"
+    },
+    {
+      "id": "4049",
+      "slug": "adamantite-earring-gemstone",
+      "name": "Adamantite Earring Gemstone",
+      "iconName": "etc_crystal_ball_gold_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4044",
+      "slug": "thons",
+      "name": "Thons",
+      "iconName": "etc_gem_clear_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4938",
+      "slug": "recipe-adamantite-ring-70",
+      "name": "Recipe: Adamantite Ring (70%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "887",
+      "slug": "adamantite-ring",
+      "name": "Adamantite Ring",
+      "iconName": "accessary_adamantite_ring_i00",
+      "category": "recipe_output",
+      "recipeId": "4938"
+    },
+    {
+      "id": "4050",
+      "slug": "adamantite-ring-wire",
+      "name": "Adamantite Ring Wire",
+      "iconName": "etc_jewel_box_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4939",
+      "slug": "recipe-adamantite-necklace-70",
+      "name": "Recipe: Adamantite Necklace (70%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "918",
+      "slug": "adamantite-necklace",
+      "name": "Adamantite Necklace",
+      "iconName": "accessary_adamantite_necklace_i00",
+      "category": "recipe_output",
+      "recipeId": "4939"
+    },
+    {
+      "id": "4051",
+      "slug": "adamantite-necklace-chain",
+      "name": "Adamantite Necklace Chain",
+      "iconName": "etc_jewel_box_i00",
+      "category": "material",
+      "recipeId": null
     }
   ]
 }
