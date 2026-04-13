@@ -132,7 +132,7 @@ async function parseRecipePage($, id, slug, url, maxDepth, currentDepth, acc) {
   })
 
   // ── Fetch output item page to get category ───────────────────────────
-  let recipeCategory = 'other'
+  let recipeCategory = null  // null = unknown, will not overwrite existing value in merger
   let recipeSubcategory = ''
 
   if (outputItemId && outputSlug) {
@@ -145,7 +145,7 @@ async function parseRecipePage($, id, slug, url, maxDepth, currentDepth, acc) {
         ;({ category: recipeCategory, subcategory: recipeSubcategory } = parseItemType(rawType))
       }
     } catch {
-      // non-fatal — keep defaults
+      // non-fatal — keep null so merger preserves existing category
     }
   }
 
@@ -162,9 +162,15 @@ async function parseRecipePage($, id, slug, url, maxDepth, currentDepth, acc) {
 
   // ── Materials list ────────────────────────────────────────────────────
   // Top-level accordion buttons only (exclude nested .accordion-body ones)
-  // Also exclude the recipe scroll itself and Adena (id=57)
+  // Exclude Adena (id=57). For weapon/armor/accessory, include the recipe scroll as first material.
+  // Always exclude the scroll itself from the accordion (we add it manually below for non-other)
   const EXCLUDED_IDS = new Set([id, '57'])
   const materials = []
+
+  // For weapon/armor/accessory, add the recipe scroll as first material (qty 1)
+  if (recipeCategory !== 'other') {
+    materials.push({ itemId: id, quantity: 1, _url: null })
+  }
 
   $('.accordion-button').not('.accordion-body .accordion-button').each((_, btn) => {
     const link = $(btn).find('a.item-name').first()
@@ -221,8 +227,7 @@ async function parseRecipePage($, id, slug, url, maxDepth, currentDepth, acc) {
     successRate,
     mpCost,
     adenaFee,
-    category: recipeCategory,
-    subcategory: recipeSubcategory,
+    ...(recipeCategory != null && { category: recipeCategory, subcategory: recipeSubcategory }),
     materials: materials.map((m) => ({ itemId: m.itemId, quantity: m.quantity })),
     scraperUrl: url,
   }
@@ -243,7 +248,7 @@ async function parseRecipePage($, id, slug, url, maxDepth, currentDepth, acc) {
   }
 }
 
-function parseItemPage($, id, slug, url, acc) {
+function parseItemPage($, id, slug, _url, acc) {
   const titleEl = $('.item_title .item-name__content').first().clone()
   titleEl.find('span').remove()
   const name = titleEl.text().trim() || slug.replace(/-/g, ' ')

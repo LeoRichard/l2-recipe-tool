@@ -11,6 +11,10 @@
       "adenaFee": 0,
       "materials": [
         {
+          "itemId": "4199",
+          "quantity": 1
+        },
+        {
           "itemId": "4121",
           "quantity": 13
         },
@@ -237,6 +241,10 @@
       "adenaFee": 0,
       "materials": [
         {
+          "itemId": "4192",
+          "quantity": 1
+        },
+        {
           "itemId": "4114",
           "quantity": 13
         },
@@ -401,6 +409,10 @@
       "adenaFee": 0,
       "materials": [
         {
+          "itemId": "4197",
+          "quantity": 1
+        },
+        {
           "itemId": "4119",
           "quantity": 13
         },
@@ -442,6 +454,10 @@
       "mpCost": 183,
       "adenaFee": 0,
       "materials": [
+        {
+          "itemId": "5005",
+          "quantity": 1
+        },
         {
           "itemId": "4119",
           "quantity": 13
@@ -486,6 +502,10 @@
       "category": "armor",
       "subcategory": "None",
       "materials": [
+        {
+          "itemId": "3014",
+          "quantity": 1
+        },
         {
           "itemId": "2961",
           "quantity": 11
@@ -587,6 +607,10 @@
       "subcategory": "Heavy",
       "materials": [
         {
+          "itemId": "2231",
+          "quantity": 1
+        },
+        {
           "itemId": "1986",
           "quantity": 11
         },
@@ -677,6 +701,10 @@
       "subcategory": "None",
       "materials": [
         {
+          "itemId": "3016",
+          "quantity": 1
+        },
+        {
           "itemId": "2963",
           "quantity": 11
         },
@@ -710,6 +738,10 @@
       "category": "armor",
       "subcategory": "Light",
       "materials": [
+        {
+          "itemId": "4985",
+          "quantity": 1
+        },
         {
           "itemId": "4083",
           "quantity": 12
@@ -774,6 +806,10 @@
       "category": "armor",
       "subcategory": "Light",
       "materials": [
+        {
+          "itemId": "4160",
+          "quantity": 1
+        },
         {
           "itemId": "4083",
           "quantity": 12
@@ -847,6 +883,10 @@
       "subcategory": "None",
       "materials": [
         {
+          "itemId": "4991",
+          "quantity": 1
+        },
+        {
           "itemId": "4089",
           "quantity": 13
         },
@@ -884,6 +924,10 @@
       "category": "armor",
       "subcategory": "None",
       "materials": [
+        {
+          "itemId": "4166",
+          "quantity": 1
+        },
         {
           "itemId": "4089",
           "quantity": 13
@@ -949,6 +993,10 @@
       "subcategory": "Heavy",
       "materials": [
         {
+          "itemId": "4983",
+          "quantity": 1
+        },
+        {
           "itemId": "4081",
           "quantity": 13
         },
@@ -990,6 +1038,10 @@
       "category": "armor",
       "subcategory": "Heavy",
       "materials": [
+        {
+          "itemId": "4158",
+          "quantity": 1
+        },
         {
           "itemId": "4081",
           "quantity": 13
@@ -1033,6 +1085,10 @@
       "subcategory": "None",
       "materials": [
         {
+          "itemId": "4993",
+          "quantity": 1
+        },
+        {
           "itemId": "4091",
           "quantity": 13
         },
@@ -1070,6 +1126,10 @@
       "category": "armor",
       "subcategory": "None",
       "materials": [
+        {
+          "itemId": "4168",
+          "quantity": 1
+        },
         {
           "itemId": "4091",
           "quantity": 13
@@ -1113,6 +1173,10 @@
       "subcategory": "Sword",
       "materials": [
         {
+          "itemId": "8306",
+          "quantity": 1
+        },
+        {
           "itemId": "8336",
           "quantity": 13
         },
@@ -1154,6 +1218,10 @@
       "category": "weapon",
       "subcategory": "Sword",
       "materials": [
+        {
+          "itemId": "8305",
+          "quantity": 1
+        },
         {
           "itemId": "8336",
           "quantity": 13
@@ -1197,6 +1265,10 @@
       "subcategory": "Blunt",
       "materials": [
         {
+          "itemId": "8312",
+          "quantity": 1
+        },
+        {
           "itemId": "8340",
           "quantity": 13
         },
@@ -1238,6 +1310,10 @@
       "category": "weapon",
       "subcategory": "Blunt",
       "materials": [
+        {
+          "itemId": "8311",
+          "quantity": 1
+        },
         {
           "itemId": "8340",
           "quantity": 13
@@ -1285,6 +1361,10 @@
       "subcategory": "Dagger",
       "materials": [
         {
+          "itemId": "4968",
+          "quantity": 1
+        },
+        {
           "itemId": "4109",
           "quantity": 12
         },
@@ -1326,6 +1406,10 @@
       "category": "weapon",
       "subcategory": "Dagger",
       "materials": [
+        {
+          "itemId": "4187",
+          "quantity": 1
+        },
         {
           "itemId": "4109",
           "quantity": 12
@@ -1369,6 +1453,10 @@
       "subcategory": "None",
       "materials": [
         {
+          "itemId": "3012",
+          "quantity": 1
+        },
+        {
           "itemId": "2959",
           "quantity": 11
         },
@@ -1402,6 +1490,10 @@
       "category": "armor",
       "subcategory": "Robe",
       "materials": [
+        {
+          "itemId": "4148",
+          "quantity": 1
+        },
         {
           "itemId": "4071",
           "quantity": 12
@@ -1449,6 +1541,10 @@
       "subcategory": "Earring",
       "materials": [
         {
+          "itemId": "4937",
+          "quantity": 1
+        },
+        {
           "itemId": "4049",
           "quantity": 12
         },
@@ -1491,6 +1587,10 @@
       "subcategory": "Ring",
       "materials": [
         {
+          "itemId": "4938",
+          "quantity": 1
+        },
+        {
           "itemId": "4050",
           "quantity": 12
         },
@@ -1532,6 +1632,10 @@
       "category": "accessory",
       "subcategory": "Necklace",
       "materials": [
+        {
+          "itemId": "4939",
+          "quantity": 1
+        },
         {
           "itemId": "4051",
           "quantity": 12

@@ -35,7 +35,12 @@ export function mergeIntoDatabase(scraped) {
       recipesDb.recipes.push(newRecipe)
       newRecipeCount++
     } else {
+      // Preserve existing category/subcategory if new scrape couldn't determine them
+      const preservedCategory = newRecipe.category == null ? existing.category : newRecipe.category
+      const preservedSubcategory = newRecipe.category == null ? existing.subcategory : newRecipe.subcategory
       Object.assign(existing, newRecipe)
+      existing.category = preservedCategory
+      existing.subcategory = preservedSubcategory
     }
   }
 
