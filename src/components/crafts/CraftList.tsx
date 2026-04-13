@@ -209,6 +209,19 @@ export function CraftList() {
                 </span>
               )}
 
+              {/* Total cost */}
+              {result.grandTotalCost > 0 && (
+                <div
+                  className="flex items-center gap-1 flex-shrink-0 rounded-full px-2.5 py-1"
+                  style={{ background: 'rgba(230,168,23,0.1)', border: '1px solid rgba(230,168,23,0.2)' }}
+                >
+                  <span className="text-xs font-body font-600" style={{ color: '#e6a817' }}>
+                    {result.grandTotalCost.toLocaleString()}
+                  </span>
+                  <AdenaIcon size={11} />
+                </div>
+              )}
+
               {/* Remove */}
               <button
                 onClick={(e) => { e.stopPropagation(); removeFromQueue(result.entryId) }}
