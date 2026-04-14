@@ -1,8 +1,19 @@
 import { useMemo, useState } from 'react'
 import { useAppStore } from '../../store/appStore'
-import { allItems, itemsMap } from '../../lib/dataLoader'
+import { allItems, allRecipes } from '../../lib/dataLoader'
 import { ItemIcon } from '../shared/ItemIcon'
 import { AdenaIcon } from '../shared/AdenaIcon'
+
+// recipe_scroll items whose corresponding recipe is weapon/armor/accessory
+const scrollRecipeCategories = new Set(
+  allRecipes
+    .filter((r) => r.category === 'weapon' || r.category === 'armor' || r.category === 'accessory')
+    .map((r) => r.id), // recipe.id === the scroll item id
+)
+
+const SCROLLS = allItems
+  .filter((item) => item.category === 'recipe_scroll' && scrollRecipeCategories.has(item.id))
+  .sort((a, b) => a.name.localeCompare(b.name))
 
 const MATERIALS = allItems
   .filter((item) => item.category === 'material' || item.category === 'recipe_output')
@@ -19,11 +30,15 @@ export function PricesPanel() {
 
   const q = search.toLowerCase()
 
+  const filteredScrolls = search
+    ? SCROLLS.filter((item) => item.name.toLowerCase().includes(q))
+    : SCROLLS
+
   const filteredMats = search
     ? MATERIALS.filter((item) => item.name.toLowerCase().includes(q))
     : MATERIALS
 
-  const totalShown = filteredMats.length
+  const totalShown = filteredScrolls.length + filteredMats.length
 
   if (MATERIALS.length === 0) {
     return (
@@ -68,14 +83,26 @@ export function PricesPanel() {
       </div>
 
       <div className="flex flex-col gap-8">
-        {filteredMats.length > 0 ? (
+        {filteredScrolls.length > 0 && (
+          <PriceSection
+            title="Recipe Scrolls"
+            subtitle="Required for weapon, armor and accessory crafts."
+            items={filteredScrolls}
+            pricesMap={pricesMap}
+            setPrice={setPrice}
+          />
+        )}
+
+        {filteredMats.length > 0 && (
           <PriceSection
             title="Materials"
             items={filteredMats}
             pricesMap={pricesMap}
             setPrice={setPrice}
           />
-        ) : (
+        )}
+
+        {totalShown === 0 && (
           <p className="text-ink-secondary text-base text-center py-8">No results for "{search}"</p>
         )}
       </div>

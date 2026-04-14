@@ -43,7 +43,6 @@ function resolveItemCost(
     const next = new Set(visited).add(itemId)
     let subCost = subRecipe.adenaFee ?? 0
     for (const mat of subRecipe.materials) {
-      if (itemsMap.get(mat.itemId)?.category === 'recipe_scroll') continue
       subCost += resolveItemCost(mat.itemId, mat.quantity, pricesMap, missingNames, next)
     }
     // subCost is per outputQuantity units
@@ -91,8 +90,6 @@ export function MarketAnalysis() {
 
         let totalCost = recipe.adenaFee ?? 0
         for (const mat of recipe.materials) {
-          // Skip recipe scrolls — they are a one-time owned item, not a per-craft cost
-          if (itemsMap.get(mat.itemId)?.category === 'recipe_scroll') continue
           totalCost += resolveItemCost(mat.itemId, mat.quantity, pricesMap, missingSet)
         }
 
