@@ -26,7 +26,7 @@ export function MarketAnalysis() {
 
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>('all')
   const [sortKey, setSortKey] = useState<SortKey>('totalCost')
-  const [sortDir, setSortDir] = useState<SortDir>('asc')
+  const [sortDir, setSortDir] = useState<SortDir>('desc')
   const [search, setSearch] = useState('')
 
   const pricesMap = useMemo(
@@ -86,7 +86,7 @@ export function MarketAnalysis() {
       setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))
     } else {
       setSortKey(key)
-      setSortDir(key === 'name' ? 'asc' : 'asc')
+      setSortDir(key === 'name' ? 'asc' : 'desc')
     }
   }
 
