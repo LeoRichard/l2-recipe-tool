@@ -5,11 +5,7 @@ import { ItemIcon } from '../shared/ItemIcon'
 import { AdenaIcon } from '../shared/AdenaIcon'
 
 const MATERIALS = allItems
-  .filter((item) => item.category === 'material')
-  .sort((a, b) => a.name.localeCompare(b.name))
-
-const SCROLLS = allItems
-  .filter((item) => item.category === 'recipe_scroll')
+  .filter((item) => item.category === 'material' || item.category === 'recipe_output')
   .sort((a, b) => a.name.localeCompare(b.name))
 
 export function PricesPanel() {
@@ -27,13 +23,9 @@ export function PricesPanel() {
     ? MATERIALS.filter((item) => item.name.toLowerCase().includes(q))
     : MATERIALS
 
-  const filteredScrolls = search
-    ? SCROLLS.filter((item) => item.name.toLowerCase().includes(q))
-    : SCROLLS
+  const totalShown = filteredMats.length
 
-  const totalShown = filteredMats.length + filteredScrolls.length
-
-  if (MATERIALS.length === 0 && SCROLLS.length === 0) {
+  if (MATERIALS.length === 0) {
     return (
       <div>
         <div className="mb-8">
@@ -76,26 +68,14 @@ export function PricesPanel() {
       </div>
 
       <div className="flex flex-col gap-8">
-        {filteredScrolls.length > 0 && (
-          <PriceSection
-            title="Recipe Scrolls"
-            subtitle="The recipe scroll itself is the first material required for weapon, armor and accessory crafts."
-            items={filteredScrolls}
-            pricesMap={pricesMap}
-            setPrice={setPrice}
-          />
-        )}
-
-        {filteredMats.length > 0 && (
+        {filteredMats.length > 0 ? (
           <PriceSection
             title="Materials"
             items={filteredMats}
             pricesMap={pricesMap}
             setPrice={setPrice}
           />
-        )}
-
-        {totalShown === 0 && (
+        ) : (
           <p className="text-ink-secondary text-base text-center py-8">No results for "{search}"</p>
         )}
       </div>
