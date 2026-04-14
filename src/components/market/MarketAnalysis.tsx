@@ -169,7 +169,7 @@ export function MarketAnalysis() {
       </div>
 
       {/* Table */}
-      <div className="card overflow-hidden" style={{ padding: 0 }}>
+      <div className="card" style={{ padding: 0, overflow: 'visible' }}>
         {/* Column headers */}
         <div
           className="grid items-center px-4 py-3"
@@ -178,6 +178,7 @@ export function MarketAnalysis() {
             gap: '12px',
             background: 'rgba(0,0,0,0.25)',
             borderBottom: '1px solid rgba(255,255,255,0.07)',
+            borderRadius: '12px 12px 0 0',
           }}
         >
           <span />
@@ -208,6 +209,7 @@ export function MarketAnalysis() {
                   gridTemplateColumns: '32px 1fr 96px 80px 160px 44px',
                   gap: '12px',
                   borderBottom: idx < rows.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
+                  borderRadius: idx === rows.length - 1 ? '0 0 12px 12px' : undefined,
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.02)')}
                 onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
