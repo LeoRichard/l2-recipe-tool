@@ -16,6 +16,11 @@ export const recipesMap: Map<string, Recipe> = new Map(
 export const allItems: Item[] = itemsDb.items
 export const allRecipes: Recipe[] = recipesDb.recipes
 
+// Map from outputItemId → Recipe (for resolving craftable material costs)
+export const recipeByOutputId: Map<string, Recipe> = new Map(
+  recipesDb.recipes.map((recipe) => [recipe.outputItemId, recipe]),
+)
+
 export function getItemIconUrl(iconName: string): string {
   if (!iconName) return ''
   return `/icons/${iconName}.png`

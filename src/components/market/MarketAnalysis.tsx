@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppStore } from '../../store/appStore'
-import { itemsMap, recipesMap } from '../../lib/dataLoader'
+import { itemsMap, recipesMap, recipeByOutputId } from '../../lib/dataLoader'
 import { ItemIcon } from '../shared/ItemIcon'
 import { AdenaIcon } from '../shared/AdenaIcon'
 
@@ -18,6 +18,42 @@ const CATEGORY_COLOR: Record<string, { bg: string; text: string }> = {
   armor:     { bg: 'rgba(59,130,246,0.15)',  text: '#60a5fa' },
   accessory: { bg: 'rgba(168,85,247,0.15)',  text: '#c084fc' },
   other:     { bg: 'rgba(255,255,255,0.06)', text: '#8b95a3' },
+}
+
+/**
+ * Recursively calculate the cost of `quantity` units of `itemId`.
+ * - If the item has a market price → use it directly.
+ * - If not, but it has a craftable recipe → recurse into its materials.
+ * - If neither → add to missingNames and return 0.
+ * `visited` guards against circular dependencies.
+ */
+function resolveItemCost(
+  itemId: string,
+  quantity: number,
+  pricesMap: Map<string, number>,
+  missingNames: Set<string>,
+  visited: Set<string> = new Set(),
+): number {
+  const price = pricesMap.get(itemId)
+  if (price) return quantity * price
+
+  // No market price — check if it's craftable
+  const subRecipe = recipeByOutputId.get(itemId)
+  if (subRecipe && !visited.has(itemId)) {
+    const next = new Set(visited).add(itemId)
+    let subCost = subRecipe.adenaFee ?? 0
+    for (const mat of subRecipe.materials) {
+      subCost += resolveItemCost(mat.itemId, mat.quantity, pricesMap, missingNames, next)
+    }
+    // subCost is per outputQuantity units
+    const runs = Math.ceil(quantity / (subRecipe.outputQuantity ?? 1))
+    return subCost * runs
+  }
+
+  // Truly unknown price
+  const name = itemsMap.get(itemId)?.name ?? itemId
+  missingNames.add(name)
+  return 0
 }
 
 export function MarketAnalysis() {
@@ -50,23 +86,14 @@ export function MarketAnalysis() {
       })
       .map((recipe) => {
         const outputItem = itemsMap.get(recipe.outputItemId)
+        const missingSet = new Set<string>()
 
-        // Split materials into priced and missing
-        const missingPriceMats: string[] = []
-        let totalCost = 0
+        let totalCost = recipe.adenaFee ?? 0
         for (const mat of recipe.materials) {
-          const price = pricesMap.get(mat.itemId)
-          if (!price) {
-            const matItem = itemsMap.get(mat.itemId)
-            missingPriceMats.push(matItem?.name ?? mat.itemId)
-          } else {
-            totalCost += mat.quantity * price
-          }
+          totalCost += resolveItemCost(mat.itemId, mat.quantity, pricesMap, missingSet)
         }
-        // Add adena fee (always known)
-        totalCost += recipe.adenaFee ?? 0
 
-        return { recipe, outputItem, totalCost, missingPriceMats }
+        return { recipe, outputItem, totalCost, missingPriceMats: [...missingSet] }
       })
       .sort((a, b) => {
         let cmp = 0
