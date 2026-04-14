@@ -4,30 +4,13 @@ import { useAppStore } from '../../store/appStore'
 import { itemsMap, recipesMap } from '../../lib/dataLoader'
 import { ItemIcon } from '../shared/ItemIcon'
 import { AdenaIcon } from '../shared/AdenaIcon'
-import type { Recipe } from '../../types'
 
-type SortKey = 'name' | 'matCost' | 'totalCost' | 'effectiveCost' | 'successRate'
+type SortKey = 'name' | 'totalCost' | 'successRate'
 type SortDir = 'asc' | 'desc'
 type CategoryFilter = 'all' | 'weapon' | 'armor' | 'accessory' | 'other'
 
-function calcCosts(recipe: Recipe, pricesMap: Map<string, number>) {
-  const matCost = recipe.materials.reduce(
-    (sum, mat) => sum + mat.quantity * (pricesMap.get(mat.itemId) ?? 0),
-    0,
-  )
-  const totalPerAttempt = matCost + (recipe.adenaFee ?? 0)
-  const effectiveCost =
-    recipe.successRate > 0 && recipe.successRate < 100
-      ? Math.ceil(totalPerAttempt * (100 / recipe.successRate))
-      : totalPerAttempt
-  return { matCost, totalPerAttempt, effectiveCost }
-}
-
 const CATEGORY_LABEL: Record<string, string> = {
-  weapon: 'Weapon',
-  armor: 'Armor',
-  accessory: 'Accessory',
-  other: 'Other',
+  weapon: 'Weapon', armor: 'Armor', accessory: 'Accessory', other: 'Other',
 }
 
 const CATEGORY_COLOR: Record<string, { bg: string; text: string }> = {
@@ -42,7 +25,7 @@ export function MarketAnalysis() {
   const navigate = useNavigate()
 
   const [categoryFilter, setCategoryFilter] = useState<CategoryFilter>('all')
-  const [sortKey, setSortKey] = useState<SortKey>('effectiveCost')
+  const [sortKey, setSortKey] = useState<SortKey>('totalCost')
   const [sortDir, setSortDir] = useState<SortDir>('asc')
   const [search, setSearch] = useState('')
 
@@ -67,19 +50,32 @@ export function MarketAnalysis() {
       })
       .map((recipe) => {
         const outputItem = itemsMap.get(recipe.outputItemId)
-        const costs = calcCosts(recipe, pricesMap)
-        return { recipe, outputItem, ...costs }
+
+        // Split materials into priced and missing
+        const missingPriceMats: string[] = []
+        let totalCost = 0
+        for (const mat of recipe.materials) {
+          const price = pricesMap.get(mat.itemId)
+          if (!price) {
+            const matItem = itemsMap.get(mat.itemId)
+            missingPriceMats.push(matItem?.name ?? mat.itemId)
+          } else {
+            totalCost += mat.quantity * price
+          }
+        }
+        // Add adena fee (always known)
+        totalCost += recipe.adenaFee ?? 0
+
+        return { recipe, outputItem, totalCost, missingPriceMats }
       })
       .sort((a, b) => {
         let cmp = 0
-        switch (sortKey) {
-          case 'name':
-            cmp = (a.outputItem?.name ?? a.recipe.name).localeCompare(b.outputItem?.name ?? b.recipe.name)
-            break
-          case 'matCost':        cmp = a.matCost - b.matCost; break
-          case 'totalCost':      cmp = a.totalPerAttempt - b.totalPerAttempt; break
-          case 'effectiveCost':  cmp = a.effectiveCost - b.effectiveCost; break
-          case 'successRate':    cmp = a.recipe.successRate - b.recipe.successRate; break
+        if (sortKey === 'name') {
+          cmp = (a.outputItem?.name ?? a.recipe.name).localeCompare(b.outputItem?.name ?? b.recipe.name)
+        } else if (sortKey === 'totalCost') {
+          cmp = a.totalCost - b.totalCost
+        } else if (sortKey === 'successRate') {
+          cmp = a.recipe.successRate - b.recipe.successRate
         }
         return sortDir === 'asc' ? cmp : -cmp
       })
@@ -90,12 +86,9 @@ export function MarketAnalysis() {
       setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))
     } else {
       setSortKey(key)
-      setSortDir(key === 'name' ? 'asc' : 'desc')
+      setSortDir(key === 'name' ? 'asc' : 'asc')
     }
   }
-
-  const totalWithCost = rows.filter((r) => r.effectiveCost > 0).length
-  const cheapest = rows.filter((r) => r.effectiveCost > 0).sort((a, b) => a.effectiveCost - b.effectiveCost)[0]
 
   return (
     <div className="flex flex-col gap-6">
@@ -105,17 +98,9 @@ export function MarketAnalysis() {
           <p className="text-ink-secondary text-sm font-body mb-1">Analysis</p>
           <h1 className="font-display font-700 text-3xl text-ink">Craft Costs</h1>
         </div>
-        <div className="text-right">
-          <p className="text-ink-muted text-xs font-body">
-            {rows.length} recipe{rows.length !== 1 ? 's' : ''}
-            {totalWithCost > 0 && ` · ${totalWithCost} priced`}
-          </p>
-          {cheapest && (
-            <p className="text-ink-secondary text-xs font-body mt-0.5">
-              Cheapest: <span style={{ color: '#e6a817' }}>{cheapest.outputItem?.name ?? cheapest.recipe.name}</span>
-            </p>
-          )}
-        </div>
+        <span className="text-ink-muted text-sm font-body">
+          {rows.length} recipe{rows.length !== 1 ? 's' : ''}
+        </span>
       </div>
 
       {/* No prices banner */}
@@ -127,7 +112,7 @@ export function MarketAnalysis() {
           <div>
             <p className="font-body font-600 text-sm text-ink mb-0.5">No market prices set</p>
             <p className="text-ink-muted text-xs font-body">
-              Add prices in Market Prices to see real cost estimates and compare profitability.
+              Add prices in Market Prices to see real cost estimates.
             </p>
           </div>
           <button
@@ -142,7 +127,6 @@ export function MarketAnalysis() {
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3">
-        {/* Search */}
         <div className="relative flex-1" style={{ minWidth: '180px', maxWidth: '280px' }}>
           <svg
             className="absolute left-3 top-1/2 -translate-y-1/2"
@@ -160,7 +144,6 @@ export function MarketAnalysis() {
           />
         </div>
 
-        {/* Category pills */}
         <div className="flex gap-1.5 flex-wrap">
           {(['all', 'weapon', 'armor', 'accessory', 'other'] as CategoryFilter[]).map((cat) => {
             const active = categoryFilter === cat
@@ -191,19 +174,17 @@ export function MarketAnalysis() {
         <div
           className="grid items-center px-4 py-3"
           style={{
-            gridTemplateColumns: '32px 1fr 90px 80px 110px 110px 120px 44px',
-            gap: '10px',
+            gridTemplateColumns: '32px 1fr 96px 80px 160px 44px',
+            gap: '12px',
             background: 'rgba(0,0,0,0.25)',
             borderBottom: '1px solid rgba(255,255,255,0.07)',
           }}
         >
           <span />
-          <SortHeader label="Item" sortKey="name" current={sortKey} dir={sortDir} onSort={toggleSort} />
+          <SortHeader label="Item"     sortKey="name"        current={sortKey} dir={sortDir} onSort={toggleSort} />
           <span className="text-xs font-body font-500 uppercase tracking-wider" style={{ color: '#4a5568' }}>Category</span>
-          <SortHeader label="Success" sortKey="successRate" current={sortKey} dir={sortDir} onSort={toggleSort} right />
-          <SortHeader label="Mat Cost" sortKey="matCost" current={sortKey} dir={sortDir} onSort={toggleSort} right />
-          <SortHeader label="Total / Run" sortKey="totalCost" current={sortKey} dir={sortDir} onSort={toggleSort} right />
-          <SortHeader label="Effective Cost" sortKey="effectiveCost" current={sortKey} dir={sortDir} onSort={toggleSort} right />
+          <SortHeader label="Success"  sortKey="successRate" current={sortKey} dir={sortDir} onSort={toggleSort} right />
+          <SortHeader label="Total Cost" sortKey="totalCost" current={sortKey} dir={sortDir} onSort={toggleSort} right />
           <span />
         </div>
 
@@ -216,27 +197,23 @@ export function MarketAnalysis() {
             const cat = row.recipe.category ?? 'other'
             const catColor = CATEGORY_COLOR[cat] ?? CATEGORY_COLOR.other
             const displayName = row.outputItem?.name ?? row.recipe.name.replace(/^Recipe:\s*/i, '')
-            const hasEffective = row.effectiveCost > 0
-            const isAdjusted = row.recipe.successRate < 100 && row.recipe.successRate > 0
+            const hasMissing = row.missingPriceMats.length > 0
+            const isComplete = !hasMissing && row.totalCost > 0
 
             return (
               <div
                 key={row.recipe.id}
                 className="grid items-center px-4 py-3 transition-colors"
                 style={{
-                  gridTemplateColumns: '32px 1fr 90px 80px 110px 110px 120px 44px',
-                  gap: '10px',
+                  gridTemplateColumns: '32px 1fr 96px 80px 160px 44px',
+                  gap: '12px',
                   borderBottom: idx < rows.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.02)')}
                 onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
               >
                 {/* Icon */}
-                <ItemIcon
-                  iconName={row.outputItem?.iconName ?? ''}
-                  name={row.outputItem?.name}
-                  size={28}
-                />
+                <ItemIcon iconName={row.outputItem?.iconName ?? ''} name={row.outputItem?.name} size={28} />
 
                 {/* Name */}
                 <div className="min-w-0">
@@ -256,62 +233,68 @@ export function MarketAnalysis() {
                 <span
                   className="font-body text-sm text-right"
                   style={{
-                    color: row.recipe.category === 'other'
-                      ? '#4a5568'
-                      : row.recipe.successRate >= 100
-                      ? '#34d399'
-                      : row.recipe.successRate >= 60
-                      ? '#e6a817'
-                      : '#fb7185',
+                    color:
+                      row.recipe.category === 'other' ? '#4a5568' :
+                      row.recipe.successRate >= 100 ? '#34d399' :
+                      row.recipe.successRate >= 60  ? '#e6a817' : '#fb7185',
                   }}
                 >
                   {row.recipe.category === 'other' ? '—' : `${row.recipe.successRate}%`}
                 </span>
 
-                {/* Mat cost */}
-                <span
-                  className="font-body text-sm text-right"
-                  style={{ color: row.matCost > 0 ? '#8b95a3' : '#2a3040' }}
-                >
-                  {row.matCost > 0 ? (
-                    <span className="flex items-center justify-end gap-1">
-                      {row.matCost.toLocaleString()} <AdenaIcon size={11} />
-                    </span>
-                  ) : '—'}
-                </span>
-
-                {/* Total per attempt */}
-                <span
-                  className="font-body text-sm text-right"
-                  style={{ color: row.totalPerAttempt > 0 ? '#8b95a3' : '#2a3040' }}
-                >
-                  {row.totalPerAttempt > 0 ? (
-                    <span className="flex items-center justify-end gap-1">
-                      {row.totalPerAttempt.toLocaleString()} <AdenaIcon size={11} />
-                    </span>
-                  ) : '—'}
-                </span>
-
-                {/* Effective cost */}
-                <div className="flex items-center justify-end gap-1.5">
-                  {hasEffective ? (
-                    <>
-                      <span className="font-body text-sm font-600 flex items-center gap-1" style={{ color: '#e6a817' }}>
-                        {row.effectiveCost.toLocaleString()} <AdenaIcon size={11} />
-                      </span>
-                      {isAdjusted && (
-                        <span
-                          className="text-2xs font-body rounded px-1"
-                          style={{ background: 'rgba(251,113,133,0.12)', color: '#fb7185' }}
-                          title={`Adjusted for ${row.recipe.successRate}% success rate`}
+                {/* Total cost + alert */}
+                <div className="flex items-center justify-end gap-2">
+                  {hasMissing && (
+                    <div className="relative group flex-shrink-0">
+                      <svg
+                        width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="#e6a817" strokeWidth="2" strokeLinecap="round"
+                        style={{ opacity: 0.6 }}
+                      >
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                      </svg>
+                      {/* Tooltip */}
+                      <div
+                        className="absolute right-0 bottom-full mb-2 z-20 pointer-events-none"
+                        style={{
+                          opacity: 0,
+                          transition: 'opacity 0.15s',
+                        }}
+                        ref={(el) => {
+                          if (!el) return
+                          const parent = el.parentElement!
+                          parent.onmouseenter = () => { el.style.opacity = '1' }
+                          parent.onmouseleave = () => { el.style.opacity = '0' }
+                        }}
+                      >
+                        <div
+                          className="rounded-lg px-3 py-2 text-xs font-body"
+                          style={{
+                            background: '#1a2030',
+                            border: '1px solid rgba(255,255,255,0.12)',
+                            whiteSpace: 'nowrap',
+                            boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+                          }}
                         >
-                          ×{(100 / row.recipe.successRate).toFixed(1)}
-                        </span>
-                      )}
-                    </>
-                  ) : (
-                    <span style={{ color: '#2a3040' }}>—</span>
+                          <p className="font-600 mb-1" style={{ color: '#e6a817' }}>Missing prices:</p>
+                          {row.missingPriceMats.map((name) => (
+                            <p key={name} style={{ color: '#8b95a3' }}>· {name}</p>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   )}
+
+                  <span
+                    className="font-body text-sm font-600 flex items-center gap-1"
+                    style={{ color: isComplete ? '#e6a817' : hasMissing && row.totalCost > 0 ? '#8b95a3' : '#2a3040' }}
+                  >
+                    {row.totalCost > 0 ? (
+                      <>{row.totalCost.toLocaleString()} <AdenaIcon size={11} /></>
+                    ) : '—'}
+                  </span>
                 </div>
 
                 {/* Add to crafts */}
@@ -332,13 +315,6 @@ export function MarketAnalysis() {
           })
         )}
       </div>
-
-      {/* Legend */}
-      <p className="text-ink-muted text-xs font-body">
-        <span style={{ color: '#8b95a3' }}>Effective Cost</span> — total per-attempt cost adjusted for success rate.
-        For example, a recipe with 70% success costs ~1.43× per successful craft on average.
-        <span style={{ color: '#fb7185' }}> ×N</span> badge shows the multiplier.
-      </p>
     </div>
   )
 }
