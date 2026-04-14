@@ -4,19 +4,29 @@ import { allItems, allRecipes } from '../../lib/dataLoader'
 import { ItemIcon } from '../shared/ItemIcon'
 import { AdenaIcon } from '../shared/AdenaIcon'
 
-// recipe_scroll items whose corresponding recipe is weapon/armor/accessory
-const scrollRecipeCategories = new Set(
-  allRecipes
-    .filter((r) => r.category === 'weapon' || r.category === 'armor' || r.category === 'accessory')
-    .map((r) => r.id), // recipe.id === the scroll item id
-)
+const recipeByOutputId = new Map(allRecipes.map((r) => [r.outputItemId, r]))
 
+const GEAR_CATEGORIES = new Set(['weapon', 'armor', 'accessory'])
+
+// recipe_scroll items whose corresponding recipe is weapon/armor/accessory
 const SCROLLS = allItems
-  .filter((item) => item.category === 'recipe_scroll' && scrollRecipeCategories.has(item.id))
+  .filter((item) => {
+    if (item.category !== 'recipe_scroll') return false
+    const r = allRecipes.find((r) => r.id === item.id)
+    return r && GEAR_CATEGORIES.has(r.category ?? '')
+  })
   .sort((a, b) => a.name.localeCompare(b.name))
 
+// materials + recipe_output that are intermediate crafting components (not final gear)
 const MATERIALS = allItems
-  .filter((item) => item.category === 'material' || item.category === 'recipe_output')
+  .filter((item) => {
+    if (item.category === 'material') return true
+    if (item.category === 'recipe_output') {
+      const r = recipeByOutputId.get(item.id)
+      return !r || !GEAR_CATEGORIES.has(r.category ?? '')
+    }
+    return false
+  })
   .sort((a, b) => a.name.localeCompare(b.name))
 
 export function PricesPanel() {
