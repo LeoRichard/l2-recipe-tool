@@ -1024,6 +1024,30 @@
       "iconName": "etc_jewel_box_i00",
       "category": "material",
       "recipeId": null
+    },
+    {
+      "id": "4999",
+      "slug": "recipe-sealed-doom-boots-60",
+      "name": "Recipe: Sealed Doom Boots (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "601",
+      "slug": "sealed-doom-boots",
+      "name": "Sealed Doom Boots",
+      "iconName": "armor_t71_b_i02",
+      "category": "recipe_output",
+      "recipeId": "4999"
+    },
+    {
+      "id": "4099",
+      "slug": "sealed-doom-boots-part",
+      "name": "Sealed Doom Boots Part",
+      "iconName": "etc_plate_silver_i00",
+      "category": "material",
+      "recipeId": null
     }
   ]
 }

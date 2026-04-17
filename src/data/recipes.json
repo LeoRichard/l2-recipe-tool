@@ -1666,6 +1666,48 @@
         }
       ],
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4939-recipe-adamantite-necklace-70"
+    },
+    {
+      "id": "4999",
+      "name": "Recipe: Sealed Doom Boots (60%)",
+      "outputItemId": "601",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "None",
+      "materials": [
+        {
+          "itemId": "4999",
+          "quantity": 1
+        },
+        {
+          "itemId": "4099",
+          "quantity": 13
+        },
+        {
+          "itemId": "1894",
+          "quantity": 32
+        },
+        {
+          "itemId": "1885",
+          "quantity": 4
+        },
+        {
+          "itemId": "4043",
+          "quantity": 4
+        },
+        {
+          "itemId": "1460",
+          "quantity": 8
+        },
+        {
+          "itemId": "2132",
+          "quantity": 4
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4999-recipe-sealed-doom-boots-60"
     }
   ]
 }
