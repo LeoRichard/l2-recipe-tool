@@ -1708,6 +1708,52 @@
         }
       ],
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4999-recipe-sealed-doom-boots-60"
+    },
+    {
+      "id": "4972",
+      "name": "Recipe: Great Axe (60%)",
+      "outputItemId": "300",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Polearm",
+      "materials": [
+        {
+          "itemId": "4972",
+          "quantity": 1
+        },
+        {
+          "itemId": "4113",
+          "quantity": 12
+        },
+        {
+          "itemId": "1890",
+          "quantity": 100
+        },
+        {
+          "itemId": "1888",
+          "quantity": 50
+        },
+        {
+          "itemId": "1885",
+          "quantity": 25
+        },
+        {
+          "itemId": "4042",
+          "quantity": 25
+        },
+        {
+          "itemId": "1459",
+          "quantity": 360
+        },
+        {
+          "itemId": "2132",
+          "quantity": 62
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4972-recipe-great-axe-60"
     }
   ]
 }

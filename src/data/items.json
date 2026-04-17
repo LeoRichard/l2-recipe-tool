@@ -1048,6 +1048,30 @@
       "iconName": "etc_plate_silver_i00",
       "category": "material",
       "recipeId": null
+    },
+    {
+      "id": "4972",
+      "slug": "recipe-great-axe-60",
+      "name": "Recipe: Great Axe (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "300",
+      "slug": "great-axe",
+      "name": "Great Axe",
+      "iconName": "weapon_great_axe_i00",
+      "category": "recipe_output",
+      "recipeId": "4972"
+    },
+    {
+      "id": "4113",
+      "slug": "great-axe-head",
+      "name": "Great Axe Head",
+      "iconName": "etc_squares_gray_i00",
+      "category": "material",
+      "recipeId": null
     }
   ]
 }
