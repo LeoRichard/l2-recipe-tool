@@ -243,6 +243,7 @@ async function parseRecipePage($, id, slug, url, maxDepth, currentDepth, acc) {
   // ── Recurse into material pages ───────────────────────────────────────
   if (currentDepth < maxDepth) {
     for (const mat of materials) {
+      if (!mat._url) continue
       await scrapeUrl(mat._url, maxDepth, currentDepth + 1, acc)
     }
   }
