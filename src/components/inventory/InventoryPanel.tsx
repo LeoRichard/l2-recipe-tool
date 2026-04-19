@@ -28,7 +28,6 @@ export function InventoryPanel() {
 
   const modalItems = allItems
     .filter((item) => item.name.toLowerCase().includes(modalSearch.toLowerCase()))
-    .filter((item) => item.category !== 'recipe_scroll')
     .slice(0, 60)
 
   return (
