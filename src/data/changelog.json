@@ -1,6 +1,21 @@
 {
-  "current": "0.5.0",
+  "current": "0.6.0",
   "entries": [
+    {
+      "version": "0.6.0",
+      "date": "2026-04-19",
+      "label": "Craft Costs Analysis",
+      "changes": [
+        { "type": "feat", "text": "New Craft Costs view — table of all recipes with total material cost based on market prices" },
+        { "type": "feat", "text": "Sortable columns (item name, success rate, total cost) with category filters and search" },
+        { "type": "feat", "text": "Warning icon shows which materials are missing a price, with tooltip listing them by name" },
+        { "type": "feat", "text": "Recursive cost resolution — if a material has no price but has a recipe, cost is calculated from its sub-materials" },
+        { "type": "feat", "text": "Inventory total value — estimated adena value of all stocked items based on market prices" },
+        { "type": "improvement", "text": "New items added to inventory now appear at the top of the list" },
+        { "type": "improvement", "text": "Market Prices now includes recipe scrolls (weapon/armor/accessory) and all craftable intermediate materials" },
+        { "type": "data", "text": "Added Sealed Doom Boots (60%), Great Axe (60%) — DB now at 49 recipes / 134 items" }
+      ]
+    },
     {
       "version": "0.5.0",
       "date": "2026-04-09",
