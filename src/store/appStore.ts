@@ -54,8 +54,12 @@ export const useAppStore = create<AppStore>()(
 
       setInventory: (itemId, qty) =>
         set((s) => {
+          const isNew = !s.inventory.find((e) => e.itemId === itemId)
           const others = s.inventory.filter((e) => e.itemId !== itemId)
-          const next: InventoryEntry[] = qty > 0 ? [...others, { itemId, quantity: qty }] : others
+          // New items go to the top; existing items keep their position
+          const next: InventoryEntry[] = qty > 0
+            ? (isNew ? [{ itemId, quantity: qty }, ...others] : [...others, { itemId, quantity: qty }])
+            : others
           return { inventory: next, lastModified: new Date().toISOString() }
         }),
 

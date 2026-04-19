@@ -1,14 +1,22 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useAppStore } from '../../store/appStore'
 import { allItems, itemsMap } from '../../lib/dataLoader'
 import { ItemIcon } from '../shared/ItemIcon'
+import { AdenaIcon } from '../shared/AdenaIcon'
 import { Modal } from '../shared/Modal'
 
 export function InventoryPanel() {
-  const { inventory, setInventory, removeInventory } = useAppStore()
+  const { inventory, prices, setInventory, removeInventory } = useAppStore()
   const [showModal, setShowModal] = useState(false)
   const [search, setSearch] = useState('')
   const [modalSearch, setModalSearch] = useState('')
+
+  const pricesMap = useMemo(() => new Map(prices.map((p) => [p.itemId, p.adenaPerUnit])), [prices])
+
+  const totalValue = useMemo(
+    () => inventory.reduce((sum, e) => sum + e.quantity * (pricesMap.get(e.itemId) ?? 0), 0),
+    [inventory, pricesMap],
+  )
 
   const inventoryItems = inventory
     .filter((e) => {
@@ -38,6 +46,44 @@ export function InventoryPanel() {
             >
               {inventory.length} item{inventory.length !== 1 ? 's' : ''}
             </span>
+          )}
+          {totalValue > 0 && (
+            <div
+              className="flex items-center gap-1.5 rounded-full px-3 py-1"
+              style={{ background: 'rgba(230,168,23,0.1)', border: '1px solid rgba(230,168,23,0.2)' }}
+            >
+              <span className="font-body font-600 text-sm" style={{ color: '#e6a817' }}>
+                {totalValue.toLocaleString()}
+              </span>
+              <AdenaIcon size={13} />
+              <div className="relative group ml-0.5">
+                <svg
+                  width="13" height="13" viewBox="0 0 24 24" fill="none"
+                  stroke="#4a5568" strokeWidth="2" strokeLinecap="round"
+                  className="cursor-default"
+                >
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <div
+                  className="absolute right-0 top-full mt-2 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  <div
+                    className="rounded-lg px-3 py-2 text-xs font-body"
+                    style={{
+                      background: '#1a2030',
+                      border: '1px solid rgba(255,255,255,0.12)',
+                      boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+                      color: '#8b95a3',
+                    }}
+                  >
+                    Estimated value based on current market prices
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
           <button onClick={() => setShowModal(true)} className="btn-primary">
             + Add Item
