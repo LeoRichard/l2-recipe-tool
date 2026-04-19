@@ -1754,6 +1754,98 @@
         }
       ],
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4972-recipe-great-axe-60"
+    },
+    {
+      "id": "4188",
+      "name": "Recipe: Hell Knife (100%)",
+      "outputItemId": "243",
+      "outputQuantity": 1,
+      "successRate": 100,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Dagger",
+      "materials": [
+        {
+          "itemId": "4188",
+          "quantity": 1
+        },
+        {
+          "itemId": "4110",
+          "quantity": 12
+        },
+        {
+          "itemId": "4047",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 114
+        },
+        {
+          "itemId": "1888",
+          "quantity": 114
+        },
+        {
+          "itemId": "4042",
+          "quantity": 57
+        },
+        {
+          "itemId": "1459",
+          "quantity": 517
+        },
+        {
+          "itemId": "2132",
+          "quantity": 62
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4188-recipe-hell-knife-100"
+    },
+    {
+      "id": "4969",
+      "name": "Recipe: Hell Knife (60%)",
+      "outputItemId": "243",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "weapon",
+      "subcategory": "Dagger",
+      "materials": [
+        {
+          "itemId": "4969",
+          "quantity": 1
+        },
+        {
+          "itemId": "4110",
+          "quantity": 12
+        },
+        {
+          "itemId": "1891",
+          "quantity": 2
+        },
+        {
+          "itemId": "1890",
+          "quantity": 72
+        },
+        {
+          "itemId": "1888",
+          "quantity": 72
+        },
+        {
+          "itemId": "4042",
+          "quantity": 36
+        },
+        {
+          "itemId": "1459",
+          "quantity": 360
+        },
+        {
+          "itemId": "2132",
+          "quantity": 62
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4969-recipe-hell-knife-60"
     }
   ]
 }

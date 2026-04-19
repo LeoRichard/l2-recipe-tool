@@ -1072,6 +1072,38 @@
       "iconName": "etc_squares_gray_i00",
       "category": "material",
       "recipeId": null
+    },
+    {
+      "id": "4188",
+      "slug": "recipe-hell-knife-100",
+      "name": "Recipe: Hell Knife (100%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "243",
+      "slug": "hell-knife",
+      "name": "Hell Knife",
+      "iconName": "weapon_hell_knife_i00",
+      "category": "recipe_output",
+      "recipeId": "4188"
+    },
+    {
+      "id": "4110",
+      "slug": "hell-knife-edge",
+      "name": "Hell Knife Edge",
+      "iconName": "etc_sword_body_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4969",
+      "slug": "recipe-hell-knife-60",
+      "name": "Recipe: Hell Knife (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
     }
   ]
 }
