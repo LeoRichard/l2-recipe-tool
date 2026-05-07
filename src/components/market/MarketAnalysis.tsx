@@ -123,7 +123,7 @@ export function MarketAnalysis() {
       <div className="flex items-end justify-between">
         <div>
           <p className="text-ink-secondary text-sm font-body mb-1">Analysis</p>
-          <h1 className="font-display font-700 text-3xl text-ink">Craft Costs</h1>
+          <h1 className="font-display font-700 text-3xl text-ink">Recipes</h1>
         </div>
         <span className="text-ink-muted text-sm font-body">
           {rows.length} recipe{rows.length !== 1 ? 's' : ''}

@@ -24,15 +24,15 @@ export function AppShell() {
         <main className="flex-1 overflow-y-auto p-4 md:p-8" style={{ background: '#0c1018' }}>
           <div
             key={location.pathname}
-            className={`mx-auto animate-slide-up ${['/crafts', '/analysis'].includes(location.pathname) ? 'max-w-7xl' : 'max-w-5xl'}`}
+            className={`mx-auto animate-slide-up ${['/crafts', '/recipes'].includes(location.pathname) ? 'max-w-7xl' : 'max-w-5xl'}`}
           >
             <Routes>
               <Route path="/" element={<Navigate to="/recipes" replace />} />
-              <Route path="/recipes" element={<RecipeList />} />
+              <Route path="/recipes" element={<MarketAnalysis />} />
               <Route path="/crafts" element={<CraftList />} />
               <Route path="/inventory" element={<InventoryPanel />} />
               <Route path="/prices" element={<PricesPanel />} />
-              <Route path="/analysis" element={<MarketAnalysis />} />
+              <Route path="/analysis" element={<Navigate to="/recipes" replace />} />
               <Route path="/history" element={<CraftingHistory />} />
               <Route path="*" element={<Navigate to="/recipes" replace />} />
             </Routes>
