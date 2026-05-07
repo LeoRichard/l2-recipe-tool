@@ -1846,6 +1846,190 @@
         }
       ],
       "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4969-recipe-hell-knife-60"
+    },
+    {
+      "id": "4974",
+      "name": "Recipe: Ring of Black Ore (70%)",
+      "outputItemId": "895",
+      "outputQuantity": 1,
+      "successRate": 70,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "accessory",
+      "subcategory": "Ring",
+      "materials": [
+        {
+          "itemId": "4974",
+          "quantity": 1
+        },
+        {
+          "itemId": "4053",
+          "quantity": 13
+        },
+        {
+          "itemId": "1886",
+          "quantity": 1
+        },
+        {
+          "itemId": "1895",
+          "quantity": 40
+        },
+        {
+          "itemId": "1887",
+          "quantity": 8
+        },
+        {
+          "itemId": "4044",
+          "quantity": 8
+        },
+        {
+          "itemId": "1460",
+          "quantity": 10
+        },
+        {
+          "itemId": "2132",
+          "quantity": 4
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4974-recipe-ring-of-black-ore-70"
+    },
+    {
+      "id": "4975",
+      "name": "Recipe: Necklace of Black Ore (70%)",
+      "outputItemId": "926",
+      "outputQuantity": 1,
+      "successRate": 70,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "accessory",
+      "subcategory": "Necklace",
+      "materials": [
+        {
+          "itemId": "4975",
+          "quantity": 1
+        },
+        {
+          "itemId": "4054",
+          "quantity": 13
+        },
+        {
+          "itemId": "1892",
+          "quantity": 1
+        },
+        {
+          "itemId": "1889",
+          "quantity": 40
+        },
+        {
+          "itemId": "1887",
+          "quantity": 8
+        },
+        {
+          "itemId": "4044",
+          "quantity": 8
+        },
+        {
+          "itemId": "1460",
+          "quantity": 20
+        },
+        {
+          "itemId": "2132",
+          "quantity": 8
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4975-recipe-necklace-of-black-ore-70"
+    },
+    {
+      "id": "4973",
+      "name": "Recipe: Earring of Black Ore (70%)",
+      "outputItemId": "864",
+      "outputQuantity": 1,
+      "successRate": 70,
+      "mpCost": 183,
+      "adenaFee": 0,
+      "category": "accessory",
+      "subcategory": "Earring",
+      "materials": [
+        {
+          "itemId": "4973",
+          "quantity": 1
+        },
+        {
+          "itemId": "4052",
+          "quantity": 13
+        },
+        {
+          "itemId": "1892",
+          "quantity": 1
+        },
+        {
+          "itemId": "1895",
+          "quantity": 50
+        },
+        {
+          "itemId": "1887",
+          "quantity": 10
+        },
+        {
+          "itemId": "4044",
+          "quantity": 10
+        },
+        {
+          "itemId": "1460",
+          "quantity": 16
+        },
+        {
+          "itemId": "2132",
+          "quantity": 6
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4973-recipe-earring-of-black-ore-70"
+    },
+    {
+      "id": "4951",
+      "name": "Recipe: Avadon Robe (60%)",
+      "outputItemId": "2406",
+      "outputQuantity": 1,
+      "successRate": 60,
+      "mpCost": 174,
+      "adenaFee": 0,
+      "category": "armor",
+      "subcategory": "Robe",
+      "materials": [
+        {
+          "itemId": "4951",
+          "quantity": 1
+        },
+        {
+          "itemId": "4071",
+          "quantity": 12
+        },
+        {
+          "itemId": "1894",
+          "quantity": 65
+        },
+        {
+          "itemId": "1895",
+          "quantity": 32
+        },
+        {
+          "itemId": "1889",
+          "quantity": 16
+        },
+        {
+          "itemId": "4043",
+          "quantity": 16
+        },
+        {
+          "itemId": "1459",
+          "quantity": 95
+        },
+        {
+          "itemId": "2132",
+          "quantity": 14
+        }
+      ],
+      "scraperUrl": "https://wikipedia1.mw2.wiki/lu4/item/4951-recipe-avadon-robe-60"
     }
   ]
 }

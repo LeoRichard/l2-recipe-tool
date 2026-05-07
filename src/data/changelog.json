@@ -12,7 +12,8 @@
         { "type": "feat", "text": "Pending outcomes badge on sidebar Craft History entry" },
         { "type": "feat", "text": "History stats header — total crafts, total adena invested, successful and failed counts" },
         { "type": "improvement", "text": "Craft Now! readiness check is per-recipe isolated, not dependent on queue order" },
-        { "type": "improvement", "text": "Crafting a recipe with qty > 1 decrements queue by 1 per click, each attempt gets its own history row" }
+        { "type": "improvement", "text": "Crafting a recipe with qty > 1 decrements queue by 1 per click, each attempt gets its own history row" },
+        { "type": "data", "text": "Added Ring of Black Ore (70%), Necklace of Black Ore (70%), Earring of Black Ore (70%), Avadon Robe (60%) — DB now at 55 recipes / 148 items" }
       ]
     },
     {

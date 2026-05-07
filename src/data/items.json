@@ -1104,6 +1104,86 @@
       "iconName": "etc_recipe_red_i00",
       "category": "recipe_scroll",
       "recipeId": null
+    },
+    {
+      "id": "4974",
+      "slug": "recipe-ring-of-black-ore-70",
+      "name": "Recipe: Ring of Black Ore (70%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "895",
+      "slug": "ring-of-black-ore",
+      "name": "Ring of Black Ore",
+      "iconName": "accessary_ring_of_black_ore_i00",
+      "category": "recipe_output",
+      "recipeId": "4974"
+    },
+    {
+      "id": "4053",
+      "slug": "ring-of-black-ore-gemstone",
+      "name": "Ring of Black Ore Gemstone",
+      "iconName": "etc_gem_black_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4975",
+      "slug": "recipe-necklace-of-black-ore-70",
+      "name": "Recipe: Necklace of Black Ore (70%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "926",
+      "slug": "necklace-of-black-ore",
+      "name": "Necklace of Black Ore",
+      "iconName": "accessary_necklace_of_black_ore_i00",
+      "category": "recipe_output",
+      "recipeId": "4975"
+    },
+    {
+      "id": "4054",
+      "slug": "necklace-of-black-ore-beads",
+      "name": "Necklace of Black Ore Beads",
+      "iconName": "etc_broken_crystal_silver_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4973",
+      "slug": "recipe-earring-of-black-ore-70",
+      "name": "Recipe: Earring of Black Ore (70%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
+    },
+    {
+      "id": "864",
+      "slug": "earring-of-black-ore",
+      "name": "Earring of Black Ore",
+      "iconName": "accessary_earing_of_black_ore_i00",
+      "category": "recipe_output",
+      "recipeId": "4973"
+    },
+    {
+      "id": "4052",
+      "slug": "earring-of-black-ore-piece",
+      "name": "Earring of Black Ore Piece",
+      "iconName": "etc_broken_crystal_silver_i00",
+      "category": "material",
+      "recipeId": null
+    },
+    {
+      "id": "4951",
+      "slug": "recipe-avadon-robe-60",
+      "name": "Recipe: Avadon Robe (60%)",
+      "iconName": "etc_recipe_red_i00",
+      "category": "recipe_scroll",
+      "recipeId": null
     }
   ]
 }
