@@ -1,6 +1,20 @@
 {
-  "current": "0.6.0",
+  "current": "0.7.0",
   "entries": [
+    {
+      "version": "0.7.0",
+      "date": "2026-05-07",
+      "label": "Craft Now & History",
+      "changes": [
+        { "type": "feat", "text": "Craft Now! button on ready recipes in My Crafts — auto-deducts materials from inventory and logs the craft" },
+        { "type": "feat", "text": "Crafting History view — full log of every crafted recipe with date, cost, and success/fail outcome tracking" },
+        { "type": "feat", "text": "Outcome toggle (Success / Failed) for sub-100% recipes — mark results manually after each attempt" },
+        { "type": "feat", "text": "Pending outcomes badge on sidebar Craft History entry" },
+        { "type": "feat", "text": "History stats header — total crafts, total adena invested, successful and failed counts" },
+        { "type": "improvement", "text": "Craft Now! readiness check is per-recipe isolated, not dependent on queue order" },
+        { "type": "improvement", "text": "Crafting a recipe with qty > 1 decrements queue by 1 per click, each attempt gets its own history row" }
+      ]
+    },
     {
       "version": "0.6.0",
       "date": "2026-04-19",

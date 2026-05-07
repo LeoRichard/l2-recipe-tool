@@ -7,6 +7,7 @@ import { CraftList } from '../crafts/CraftList'
 import { InventoryPanel } from '../inventory/InventoryPanel'
 import { PricesPanel } from '../prices/PricesPanel'
 import { MarketAnalysis } from '../market/MarketAnalysis'
+import { CraftingHistory } from '../history/CraftingHistory'
 import { OnboardingWizard, useOnboarding } from './OnboardingWizard'
 
 export function AppShell() {
@@ -32,6 +33,7 @@ export function AppShell() {
               <Route path="/inventory" element={<InventoryPanel />} />
               <Route path="/prices" element={<PricesPanel />} />
               <Route path="/analysis" element={<MarketAnalysis />} />
+              <Route path="/history" element={<CraftingHistory />} />
               <Route path="*" element={<Navigate to="/recipes" replace />} />
             </Routes>
           </div>

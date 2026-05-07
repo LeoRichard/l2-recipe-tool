@@ -50,10 +50,21 @@ export interface PriceEntry {
   adenaPerUnit: number
 }
 
+export type CraftOutcome = 'success' | 'failed' | 'pending'
+
+export interface CraftHistoryEntry {
+  id: string
+  recipeId: string
+  craftedAt: string
+  totalCost: number
+  outcome: CraftOutcome
+}
+
 export interface AppState {
   inventory: InventoryEntry[]
   queue: QueueEntry[]
   prices: PriceEntry[]
+  craftHistory: CraftHistoryEntry[]
   lastModified: string
 }
 

@@ -60,6 +60,16 @@ const NAV: { path: string; label: string; icon: React.ReactNode }[] = [
       </svg>
     ),
   },
+  {
+    path: '/history',
+    label: 'Craft History',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12,6 12,12 16,14"/>
+      </svg>
+    ),
+  },
 ]
 
 interface Props {
@@ -68,7 +78,8 @@ interface Props {
 }
 
 export function Sidebar({ mobileOpen, onClose }: Props) {
-  const { queue } = useAppStore()
+  const { queue, craftHistory } = useAppStore()
+  const pendingOutcomes = craftHistory.filter((e) => e.outcome === 'pending').length
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -159,6 +170,14 @@ export function Sidebar({ mobileOpen, onClose }: Props) {
                   style={{ background: 'rgba(230,168,23,0.2)', color: '#e6a817' }}
                 >
                   {queue.length}
+                </span>
+              )}
+              {path === '/history' && pendingOutcomes > 0 && (
+                <span
+                  className="ml-auto text-2xs font-600 rounded-full px-1.5 py-0.5 min-w-[20px] text-center"
+                  style={{ background: 'rgba(249,115,22,0.2)', color: '#f97316' }}
+                >
+                  {pendingOutcomes}
                 </span>
               )}
             </button>

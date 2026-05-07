@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { v4 as uuid } from 'uuid'
-import type { AppState, QueueEntry, InventoryEntry, PriceEntry } from '../types'
+import type { AppState, QueueEntry, InventoryEntry, PriceEntry, CraftHistoryEntry, CraftOutcome } from '../types'
 
 interface AppStore extends AppState {
   addToQueue: (recipeId: string, qty?: number) => void
@@ -11,6 +11,9 @@ interface AppStore extends AppState {
   setInventory: (itemId: string, qty: number) => void
   removeInventory: (itemId: string) => void
   setPrice: (itemId: string, adenaPerUnit: number) => void
+  craftNow: (entryId: string, deductions: { itemId: string; qty: number }[], totalCost: number, successRate: number) => void
+  setCraftOutcome: (historyId: string, outcome: CraftOutcome) => void
+  clearCraftHistory: () => void
   importAppState: (state: AppState) => void
   exportAppState: () => AppState
 }
@@ -21,6 +24,7 @@ export const useAppStore = create<AppStore>()(
       inventory: [],
       queue: [],
       prices: [],
+      craftHistory: [],
       lastModified: new Date().toISOString(),
 
       addToQueue: (recipeId, qty = 1) =>
@@ -77,17 +81,63 @@ export const useAppStore = create<AppStore>()(
           return { prices: next, lastModified: new Date().toISOString() }
         }),
 
+      craftNow: (entryId, deductions, totalCost, successRate) =>
+        set((s) => {
+          const queueEntry = s.queue.find((e) => e.id === entryId)
+          if (!queueEntry) return s
+
+          const invMap = new Map(s.inventory.map((e) => [e.itemId, e.quantity]))
+          for (const { itemId, qty } of deductions) {
+            invMap.set(itemId, Math.max(0, (invMap.get(itemId) ?? 0) - qty))
+          }
+          const inventory: InventoryEntry[] = s.inventory
+            .map((e) => ({ ...e, quantity: invMap.get(e.itemId) ?? 0 }))
+            .filter((e) => e.quantity > 0)
+
+          const newQty = queueEntry.quantity - 1
+          const queue: QueueEntry[] = newQty > 0
+            ? s.queue.map((e) => e.id === entryId ? { ...e, quantity: newQty } : e)
+            : s.queue.filter((e) => e.id !== entryId)
+
+          const entry: CraftHistoryEntry = {
+            id: uuid(),
+            recipeId: queueEntry.recipeId,
+            craftedAt: new Date().toISOString(),
+            totalCost,
+            outcome: successRate >= 100 ? 'success' : 'pending',
+          }
+
+          return {
+            inventory,
+            queue,
+            craftHistory: [entry, ...s.craftHistory],
+            lastModified: new Date().toISOString(),
+          }
+        }),
+
+      setCraftOutcome: (historyId, outcome) =>
+        set((s) => ({
+          craftHistory: s.craftHistory.map((e) =>
+            e.id === historyId ? { ...e, outcome } : e,
+          ),
+          lastModified: new Date().toISOString(),
+        })),
+
+      clearCraftHistory: () =>
+        set({ craftHistory: [], lastModified: new Date().toISOString() }),
+
       importAppState: (state) =>
         set({
           inventory: state.inventory ?? [],
           queue: state.queue ?? [],
           prices: state.prices ?? [],
+          craftHistory: state.craftHistory ?? [],
           lastModified: state.lastModified ?? new Date().toISOString(),
         }),
 
       exportAppState: () => {
-        const { inventory, queue, prices, lastModified } = get()
-        return { inventory, queue, prices, lastModified }
+        const { inventory, queue, prices, craftHistory, lastModified } = get()
+        return { inventory, queue, prices, craftHistory, lastModified }
       },
     }),
     {
@@ -96,6 +146,7 @@ export const useAppStore = create<AppStore>()(
         inventory: s.inventory,
         queue: s.queue,
         prices: s.prices,
+        craftHistory: s.craftHistory,
         lastModified: s.lastModified,
       }),
     },

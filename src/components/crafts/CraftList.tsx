@@ -9,7 +9,7 @@ import { AdenaIcon } from '../shared/AdenaIcon'
 import type { RecipeBomResult, BomFlatRow, PriceEntry } from '../../types'
 
 export function CraftList() {
-  const { queue, inventory, prices, removeFromQueue, setQueueQty, moveQueueItem } = useAppStore()
+  const { queue, inventory, prices, removeFromQueue, setQueueQty, moveQueueItem, craftNow } = useAppStore()
   const navigate = useNavigate()
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
   const [tabMap, setTabMap] = useState<Record<string, 'flat' | 'tree'>>({})
@@ -24,6 +24,19 @@ export function CraftList() {
     [prices],
   )
 
+  // Per-entry isolated readiness (qty=1) — independent of queue order
+  const readyMap = useMemo(() => {
+    const map = new Map<string, boolean>()
+    for (const entry of queue) {
+      const isolated = computePerRecipeBom(
+        [{ ...entry, quantity: 1 }],
+        inventory, prices, recipesMap, itemsMap,
+      )
+      map.set(entry.id, isolated[0]?.flat.every((r) => r.totalShort === 0) ?? false)
+    }
+    return map
+  }, [queue, inventory, prices])
+
   const toggleExpanded = (id: string) =>
     setExpandedIds((prev) => {
       const next = new Set(prev)
@@ -34,6 +47,32 @@ export function CraftList() {
   const getTab = (id: string): 'flat' | 'tree' => tabMap[id] ?? 'flat'
   const setTab = (id: string, tab: 'flat' | 'tree') =>
     setTabMap((prev) => ({ ...prev, [id]: tab }))
+
+  const handleCraftNow = (e: React.MouseEvent, entryId: string) => {
+    e.stopPropagation()
+    const entry = queue.find((q) => q.id === entryId)
+    if (!entry) return
+    const recipe = recipesMap.get(entry.recipeId)
+    if (!recipe) return
+
+    const isolated = computePerRecipeBom(
+      [{ ...entry, quantity: 1 }],
+      inventory, prices, recipesMap, itemsMap,
+    )
+    const res = isolated[0]
+    if (!res || res.flat.some((r) => r.totalShort > 0)) return
+
+    const deductions = res.flat
+      .filter((r) => r.totalAvailable > 0)
+      .map((r) => ({ itemId: r.itemId, qty: r.totalAvailable }))
+
+    const totalCost = res.flat.reduce(
+      (s, r) => s + r.totalNeeded * (pricesMap.get(r.itemId) ?? 0),
+      0,
+    )
+
+    craftNow(entryId, deductions, totalCost, recipe.successRate)
+  }
 
   if (queue.length === 0) {
     return (
@@ -91,6 +130,7 @@ export function CraftList() {
         const pct          = totalUnits > 0 ? Math.round((coveredUnits / totalUnits) * 100) : result.flat.length === 0 ? 100 : 0
         const missingCount = result.flat.filter((r) => r.totalShort > 0).length
         const progressColor = pct >= 100 ? '#34d399' : pct >= 60 ? '#e6a817' : pct >= 30 ? '#f97316' : '#fb7185'
+        const isReady = readyMap.get(result.entryId) ?? false
 
         return (
           <div
@@ -198,15 +238,34 @@ export function CraftList() {
               </div>
 
               {/* Missing badge */}
-              {missingCount > 0 && (
+              {missingCount > 0 && !isReady && (
                 <span className="text-xs font-body flex-shrink-0" style={{ color: '#fb7185' }}>
                   {missingCount} missing
                 </span>
               )}
-              {missingCount === 0 && result.flat.length > 0 && (
-                <span className="text-xs font-body flex-shrink-0" style={{ color: '#34d399' }}>
-                  Ready!
-                </span>
+              {isReady && (
+                <button
+                  onClick={(e) => handleCraftNow(e, result.entryId)}
+                  className="flex-shrink-0 flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-body font-600 transition-all"
+                  style={{
+                    background: 'rgba(52,211,153,0.15)',
+                    border: '1px solid rgba(52,211,153,0.3)',
+                    color: '#34d399',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(52,211,153,0.25)'
+                    e.currentTarget.style.borderColor = 'rgba(52,211,153,0.5)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(52,211,153,0.15)'
+                    e.currentTarget.style.borderColor = 'rgba(52,211,153,0.3)'
+                  }}
+                >
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <polygon points="5,3 19,12 5,21"/>
+                  </svg>
+                  Craft Now!
+                </button>
               )}
 
               {/* Total cost */}
