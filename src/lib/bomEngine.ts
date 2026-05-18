@@ -37,6 +37,7 @@ export function computeBom(
       ledger,
       recipesMap,
       itemsMap,
+      pricesMap,
       0,
       new Set<string>(),
     )
@@ -76,6 +77,7 @@ function buildTreeNode(
   ledger: Map<string, number>,
   recipesMap: Map<string, Recipe>,
   itemsMap: Map<string, Item>,
+  pricesMap: Map<string, number>,
   depth: number,
   visited: Set<string>,
 ): BomTreeNode {
@@ -94,9 +96,10 @@ function buildTreeNode(
   // Recurse into sub-materials if:
   // - a recipe exists for this item
   // - there's a shortage
+  // - the item has no market price (if it has a price, treat as a purchasable leaf)
   // - we haven't exceeded max depth
   // - no circular dependency
-  if (recipe && short > 0 && depth < MAX_DEPTH && !visited.has(itemId)) {
+  if (recipe && short > 0 && !pricesMap.has(itemId) && depth < MAX_DEPTH && !visited.has(itemId)) {
     const craftRuns = Math.ceil(short / recipe.outputQuantity)
     const childVisited = new Set(visited)
     childVisited.add(itemId)
@@ -109,6 +112,7 @@ function buildTreeNode(
         ledger,
         recipesMap,
         itemsMap,
+        pricesMap,
         depth + 1,
         childVisited,
       )
@@ -145,7 +149,7 @@ export function computePerRecipeBom(
     const recipe = recipesMap.get(entry.recipeId)
     if (!recipe) continue
 
-    const tree = [buildTreeNode(recipe.outputItemId, entry.quantity, ledger, recipesMap, itemsMap, 0, new Set<string>())]
+    const tree = [buildTreeNode(recipe.outputItemId, entry.quantity, ledger, recipesMap, itemsMap, pricesMap, 0, new Set<string>())]
 
     const flatAccum = new Map<string, { needed: number; available: number }>()
     collectRawMaterials(tree, flatAccum)
