@@ -197,12 +197,11 @@ export function MarketAnalysis() {
 
       {/* Table */}
       <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
-      <div className="card" style={{ padding: 0, overflow: 'visible', minWidth: '560px' }}>
+      <div className="card" style={{ padding: 0, overflow: 'visible' }}>
         {/* Column headers */}
         <div
-          className="grid items-center px-4 py-3"
+          className="grid items-center px-4 py-3 grid-cols-[32px_1fr_80px_160px_44px] md:grid-cols-[32px_1fr_96px_80px_160px_44px]"
           style={{
-            gridTemplateColumns: '32px 1fr 96px 80px 160px 44px',
             gap: '12px',
             background: 'rgba(0,0,0,0.25)',
             borderBottom: '1px solid rgba(255,255,255,0.07)',
@@ -211,7 +210,7 @@ export function MarketAnalysis() {
         >
           <span />
           <SortHeader label="Item"     sortKey="name"        current={sortKey} dir={sortDir} onSort={toggleSort} />
-          <span className="text-xs font-body font-500 uppercase tracking-wider" style={{ color: '#4a5568' }}>Category</span>
+          <span className="hidden md:block text-xs font-body font-500 uppercase tracking-wider" style={{ color: '#4a5568' }}>Category</span>
           <SortHeader label="Success"  sortKey="successRate" current={sortKey} dir={sortDir} onSort={toggleSort} right />
           <SortHeader label="Total Cost" sortKey="totalCost" current={sortKey} dir={sortDir} onSort={toggleSort} right />
           <span />
@@ -232,9 +231,8 @@ export function MarketAnalysis() {
             return (
               <div
                 key={row.recipe.id}
-                className="grid items-center px-4 py-3 transition-colors"
+                className="grid items-center px-4 py-3 transition-colors grid-cols-[32px_1fr_80px_160px_44px] md:grid-cols-[32px_1fr_96px_80px_160px_44px]"
                 style={{
-                  gridTemplateColumns: '32px 1fr 96px 80px 160px 44px',
                   gap: '12px',
                   borderBottom: idx < rows.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                   borderRadius: idx === rows.length - 1 ? '0 0 12px 12px' : undefined,
@@ -251,9 +249,9 @@ export function MarketAnalysis() {
                   <p className="font-body text-2xs text-ink-muted truncate">{row.recipe.name}</p>
                 </div>
 
-                {/* Category */}
+                {/* Category — hidden on mobile */}
                 <span
-                  className="text-2xs font-body font-500 px-2 py-1 rounded-full text-center"
+                  className="hidden md:block text-2xs font-body font-500 px-2 py-1 rounded-full text-center"
                   style={{ background: catColor.bg, color: catColor.text }}
                 >
                   {CATEGORY_LABEL[cat] ?? cat}
