@@ -207,20 +207,20 @@ export function CraftingHistory() {
                 </p>
               </div>
 
-              {/* Success rate badge (only for <100%) */}
+              {/* Success rate badge (only for <100%) — hidden on mobile */}
               {!needs100 && (
                 <span
-                  className="flex-shrink-0 text-xs font-body font-600 rounded-full px-2 py-0.5"
+                  className="hidden md:inline flex-shrink-0 text-xs font-body font-600 rounded-full px-2 py-0.5"
                   style={{ background: 'rgba(249,115,22,0.12)', color: '#f97316' }}
                 >
                   {recipe?.successRate ?? '?'}%
                 </span>
               )}
 
-              {/* Cost */}
+              {/* Cost — hidden on mobile */}
               {entry.totalCost > 0 ? (
                 <div
-                  className="flex items-center gap-1 flex-shrink-0 rounded-full px-2.5 py-1"
+                  className="hidden md:flex items-center gap-1 flex-shrink-0 rounded-full px-2.5 py-1"
                   style={{ background: 'rgba(230,168,23,0.08)', border: '1px solid rgba(230,168,23,0.15)' }}
                 >
                   <span className="text-xs font-body font-600" style={{ color: '#e6a817' }}>
@@ -228,9 +228,7 @@ export function CraftingHistory() {
                   </span>
                   <AdenaIcon size={11} />
                 </div>
-              ) : (
-                <span className="text-xs font-body flex-shrink-0" style={{ color: '#4a5568' }}>No price data</span>
-              )}
+              ) : null}
 
               {/* Outcome toggle (only for <100% success) */}
               {!needs100 ? (

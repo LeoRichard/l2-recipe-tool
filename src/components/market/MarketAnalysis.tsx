@@ -196,7 +196,8 @@ export function MarketAnalysis() {
       </div>
 
       {/* Table */}
-      <div className="card" style={{ padding: 0, overflow: 'visible' }}>
+      <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+      <div className="card" style={{ padding: 0, overflow: 'visible', minWidth: '560px' }}>
         {/* Column headers */}
         <div
           className="grid items-center px-4 py-3"
@@ -343,6 +344,7 @@ export function MarketAnalysis() {
             )
           })
         )}
+      </div>
       </div>
     </div>
   )

@@ -154,8 +154,8 @@ export function CraftList() {
               onMouseEnter={(e) => { if (!isExpanded) e.currentTarget.style.background = 'rgba(255,255,255,0.015)' }}
               onMouseLeave={(e) => { if (!isExpanded) e.currentTarget.style.background = 'transparent' }}
             >
-              {/* Reorder arrows */}
-              <div className="flex flex-col gap-0.5 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
+              {/* Reorder arrows — hidden on mobile */}
+              <div className="hidden md:flex flex-col gap-0.5 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
                 <button
                   disabled={idx === 0}
                   onClick={() => moveQueueItem(result.entryId, 'up')}
@@ -268,10 +268,10 @@ export function CraftList() {
                 </button>
               )}
 
-              {/* Total cost */}
+              {/* Total cost — hidden on mobile */}
               {result.grandTotalCost > 0 && (
                 <div
-                  className="flex items-center gap-1 flex-shrink-0 rounded-full px-2.5 py-1"
+                  className="hidden md:flex items-center gap-1 flex-shrink-0 rounded-full px-2.5 py-1"
                   style={{ background: 'rgba(230,168,23,0.1)', border: '1px solid rgba(230,168,23,0.2)' }}
                 >
                   <span className="text-xs font-body font-600" style={{ color: '#e6a817' }}>
@@ -372,9 +372,9 @@ function RecipeBomView({
   }
 
   return (
-    <div className="flex gap-5 items-start">
+    <div className="flex flex-col md:flex-row gap-5 items-start">
       {/* Left — summary cards */}
-      <div className="flex flex-col gap-4" style={{ width: '300px', flexShrink: 0 }}>
+      <div className="flex flex-col gap-4 w-full md:w-auto" style={{ flexShrink: 0, minWidth: 0 }}>
         <CostSummary totalRecipeCost={totalRecipeCost} investedValue={investedValue} toBuy={toBuy} />
         <div className="grid grid-cols-3 gap-3">
           <StatCard value={result.flat.length} label="Total"   color="rgba(255,255,255,0.06)" textColor="#8b95a3" />
@@ -577,7 +577,8 @@ function FlatView({
       {missing.length > 0 && (
         <div>
           <SectionLabel color="#fb7185" text={`Missing — ${missing.length} item${missing.length !== 1 ? 's' : ''}`} />
-          <div className="card overflow-hidden" style={{ padding: 0 }}>
+          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          <div className="card overflow-hidden" style={{ padding: 0, minWidth: '460px' }}>
             <TableHeader />
             {missing.map((row, idx) => {
               const item = itemsMap.get(row.itemId)
@@ -621,13 +622,15 @@ function FlatView({
               </div>
             )}
           </div>
+          </div>
         </div>
       )}
 
       {covered.length > 0 && (
         <div>
           <SectionLabel color="#34d399" text={`Covered — ${covered.length} item${covered.length !== 1 ? 's' : ''}`} />
-          <div className="card overflow-hidden" style={{ padding: 0, opacity: 0.7 }}>
+          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          <div className="card overflow-hidden" style={{ padding: 0, opacity: 0.7, minWidth: '460px' }}>
             <TableHeader />
             {covered.map((row, idx) => {
               const item = itemsMap.get(row.itemId)
@@ -650,6 +653,7 @@ function FlatView({
                 </div>
               )
             })}
+          </div>
           </div>
         </div>
       )}
