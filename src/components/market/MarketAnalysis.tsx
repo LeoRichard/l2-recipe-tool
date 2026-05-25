@@ -200,19 +200,19 @@ export function MarketAnalysis() {
       <div className="card" style={{ padding: 0, overflow: 'visible' }}>
         {/* Column headers */}
         <div
-          className="grid items-center px-4 py-3 grid-cols-[32px_1fr_80px_160px_44px] md:grid-cols-[32px_1fr_96px_80px_160px_44px]"
+          className="grid items-center px-4 py-3 grid-cols-[28px_1fr_96px_32px] md:grid-cols-[32px_1fr_96px_80px_160px_44px]"
           style={{
-            gap: '12px',
+            gap: '10px',
             background: 'rgba(0,0,0,0.25)',
             borderBottom: '1px solid rgba(255,255,255,0.07)',
             borderRadius: '12px 12px 0 0',
           }}
         >
           <span />
-          <SortHeader label="Item"     sortKey="name"        current={sortKey} dir={sortDir} onSort={toggleSort} />
+          <SortHeader label="Item"       sortKey="name"        current={sortKey} dir={sortDir} onSort={toggleSort} />
           <span className="hidden md:block text-xs font-body font-500 uppercase tracking-wider" style={{ color: '#4a5568' }}>Category</span>
-          <SortHeader label="Success"  sortKey="successRate" current={sortKey} dir={sortDir} onSort={toggleSort} right />
-          <SortHeader label="Total Cost" sortKey="totalCost" current={sortKey} dir={sortDir} onSort={toggleSort} right />
+          <span className="hidden md:block text-xs font-body font-500 uppercase tracking-wider text-right" style={{ color: '#4a5568' }}>Success</span>
+          <SortHeader label="Cost"       sortKey="totalCost"   current={sortKey} dir={sortDir} onSort={toggleSort} right />
           <span />
         </div>
 
@@ -231,9 +231,9 @@ export function MarketAnalysis() {
             return (
               <div
                 key={row.recipe.id}
-                className="grid items-center px-4 py-3 transition-colors grid-cols-[32px_1fr_80px_160px_44px] md:grid-cols-[32px_1fr_96px_80px_160px_44px]"
+                className="grid items-center px-4 py-3 transition-colors grid-cols-[28px_1fr_96px_32px] md:grid-cols-[32px_1fr_96px_80px_160px_44px]"
                 style={{
-                  gap: '12px',
+                  gap: '10px',
                   borderBottom: idx < rows.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
                   borderRadius: idx === rows.length - 1 ? '0 0 12px 12px' : undefined,
                 }}
@@ -241,12 +241,12 @@ export function MarketAnalysis() {
                 onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
               >
                 {/* Icon */}
-                <ItemIcon iconName={row.outputItem?.iconName ?? ''} name={row.outputItem?.name} size={28} />
+                <ItemIcon iconName={row.outputItem?.iconName ?? ''} name={row.outputItem?.name} size={26} />
 
                 {/* Name */}
                 <div className="min-w-0">
-                  <p className="font-body text-sm text-ink truncate">{displayName}</p>
-                  <p className="font-body text-2xs text-ink-muted truncate">{row.recipe.name}</p>
+                  <p className="font-body text-xs md:text-sm text-ink leading-snug">{displayName}</p>
+                  <p className="hidden md:block font-body text-2xs text-ink-muted mt-0.5 truncate">{row.recipe.name}</p>
                 </div>
 
                 {/* Category — hidden on mobile */}
@@ -257,9 +257,9 @@ export function MarketAnalysis() {
                   {CATEGORY_LABEL[cat] ?? cat}
                 </span>
 
-                {/* Success rate */}
+                {/* Success rate — hidden on mobile */}
                 <span
-                  className="font-body text-sm text-right"
+                  className="hidden md:block font-body text-sm text-right"
                   style={{
                     color:
                       row.recipe.category === 'other' ? '#4a5568' :
